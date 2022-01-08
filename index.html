@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta name='description' content='The Vector Website'>
+	<meta name='author' content='cally72jhb'>
+	<link rel='icon' type='image/x-icon' href='icon.png' />
+	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet'>
+
+	<title>Vector Addon</title>
+
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+		* {
+    		box-sizing: border-box;
+    		margin: 0;
+    		padding: 0;
+		}
+
+		html {
+  			scroll-behavior: smooth;
+		}
+
+		::-moz-selection {
+  			color: #6EC282;
+  			background: rgba(78, 138, 93, 0);
+		}
+
+		::selection {
+  			color: #6EC282;
+  			background: rgba(78, 138, 93, 0);
+		}
+
+		body {
+    		background-color: #24252A;
+    		font-family: 'Varela Round', sans-serif;
+		}
+
+		li, a, button {
+    		font-family: 'Montserrat', sans-serif;
+    		font-weight: 500;
+    		font-size: 16px;
+    		color: #EDF0F1;
+    		text-decoration: none;
+		}
+
+		header {
+    		display: flex;
+    		justify-content: space-between;
+    		align-items: center;
+    		padding: 30px 10%;
+
+    		position: fixed;
+  			top: 0;
+  			width: 100%;
+  			padding-top: 25px;
+  			background-color: #303239;
+		}
+
+		.home {
+			margin: 10px;
+			font-size: 25px;
+			position: center;
+			text-align: center;
+			color: rgba(225, 225, 225, 255);
+		}
+
+		.about {
+			margin: 10px;
+			font-size: 25px;
+			position: center;
+			text-align: center;
+			color: rgba(225, 225, 225, 255);
+		}
+
+		.download {
+			font-size: 25px;
+			position: center;
+			text-align: center;
+			color: rgba(225, 225, 225, 255);
+		}
+
+		.logo {
+    		cursor: pointer;
+    		color: #6EC282;
+		}
+
+		.nav-pages {
+   		 	list-style: none;
+		}
+
+		.nav-pages li {
+   			display: inline-block;
+    		padding: 0px 20px;
+		}
+
+		.nav-pages li a {
+    		transition: all 0.3s ease 0s;
+		}
+
+		.nav-pages li a:hover {
+    		color: #0088A8
+		}
+
+		.menu {
+    		display: none;
+		}
+
+		button {
+    		padding: 9px 25px;
+    		background-color: rgba(0, 135, 170, 1);
+    		cursor: pointer;
+    		border: none;
+    		border-radius: 50px;
+    		transition: all 0.3s ease 0s;
+		}
+
+		button:hover {
+    		background-color: rgba(0, 135, 170, 0.8);
+		}
+
+		@media only screen and (max-width: 850px) {
+    		.nav-pages, .cta {
+        		display: none;
+    		}
+
+    		.menu {
+        		display: inherit;
+    		}
+		}
+
+		/* Mobile Nav */
+
+		.overlay {
+    		height: 100%;
+    		width: 0;
+    		position: fixed;
+    		z-index: 1;
+    		left: 0;
+    		top: 0;
+    		background-color: #24252A;
+    		overflow-x: hidden;
+    		transition: all 0.5s ease 0s;
+		}
+
+		.overlay__content {
+    		display: flex;
+    		height: 100%;
+    		flex-direction: column;
+    		align-items: center;
+    		justify-content: center;
+		}
+
+		.overlay a {
+    		padding: 15px;
+    		font-size: 36px;
+    		display: block;
+    		transition: all 0.3s ease 0s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+    		color: #0088A9;
+		}
+
+		.overlay .close {
+    		position: absolute;
+    		top: 20px;
+    		right: 45px;
+    		font-size: 60px;
+    		cursor: pointer;
+		}
+
+		@media screen and (max-height: 450px) {
+    		.overlay a {
+        		font-size: 20px
+    		}
+
+    		.overlay .close {
+        		font-size: 40px;
+        		top: 15px;
+        		right: 35px
+    		}
+		}
+	</style>
+</head>
+<body>
+
+
+<div id='home' class='home'>
+	<br><br><br><br><br><br><br><br><br>
+	<h1>Home</h1>
+	<br>
+	<p>Vector Addon is a powerful Addon</p>
+	<p>for Meteor Client</p>
+</div>
+
+<div id='about' class='about'>
+	<br><br><br><br><br><br><br><br><br>
+	<h1>About</h1>
+	<br>
+	<p>The open-source project</p>
+	<p>was made by cally72jhb.</p>
+	<p>It became public on Dec. 11. 2021</p>
+</div>
+
+<div id='download' class='download'>
+	<br><br><br><br><br><br><br><br>
+	<h1>Download</h1>
+	<p>You can download it here:</p>
+	<br>
+	<a onclick='downloadPage()'><button>Download</button></a>
+	<a onclick='sourcesPage()'><button>Sources</button></a>
+	<a onclick='githubPage()'><button>GitHub</button></a>
+	<br><br><br><br><br><br><br><br><br>
+</div>
+
+
+<header>
+	<h1 class='logo'>Vector Addon</h1>
+	<nav>
+		<ul class='nav-pages'>
+			<li><a onclick='scrollHome()' href='#home'>Home</a></li>
+			<li><a onclick='scrollAbout()' href='#about'>About</a></li>
+			<li><a onclick='scrollDownload()' href='#download'>Download</a></li>
+		</ul>
+	</nav>
+	<a onclick='openDc()' class='cta' href='#'><button>Discord</button></a>
+	<a onclick='openNav()' class='menu' href='#'><button>Menu</button></a>
+</header>
+
+
+
+<div id='mobile__menu' class='overlay'>
+	<a class='close' onclick='closeNav()'>&times;</a>
+	<div class='overlay__content'>
+		<a onclick='scrollHome()' href='#home'>Home</a>
+		<a onclick='scrollAbout()' href='#about'>About</a>
+		<a onclick='scrollDownload()' href='#download'>Download</a>
+	</div>
+</div>
+
+<script>
+	function scrollHome() {
+		closeNav()
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	}
+
+	function scrollAbout() {
+		closeNav()
+		window.scrollTo({ top: 10, behavior: 'smooth' });
+	}
+
+	function scrollDownload() {
+		closeNav()
+		window.scrollTo({ top: 100, behavior: 'smooth' });
+	}
+
+	function downloadPage() {
+		window.open('https://github.com/cally72jhb/vector-addon/releases');
+	}
+
+	function sourcesPage() {
+		window.open('https://github.com/cally72jhb/vector-addon');
+	}
+
+	function githubPage() {
+		window.open('https://github.com/cally72jhb');
+	}
+
+	function openDc() {
+		window.open('https://discord.gg/A3nYgbKeXR', '_blank').focus();
+	}
+
+	function openNav() {
+		document.getElementById('mobile__menu').style.width = '100%';
+	}
+
+	function closeNav() {
+		document.getElementById('mobile__menu').style.width = '0';
+	}
+</script>
+</body>
+</html>

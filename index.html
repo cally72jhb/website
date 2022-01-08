@@ -225,10 +225,7 @@
 </div>
 
 <div id='bottom' class='bottom'>
-	<br>
-	<p>Copyright &copy; cally72jhb 2022</p>
-	<span>Designed by </span><span style="color:#6EC282">cally72jhb</span>
-	<br><br>
+	<br><span>Designed by </span><span style="color:#6EC282">cally72jhb</span><br><br>
 </div>
 
 
@@ -257,19 +254,30 @@
 </div>
 
 <script>
+	const section = 'home';
+
 	function scrollHome() {
-		closeNav()
-		window.scrollTo({ top: 0, behavior: 'smooth' });
+		closeNav();
+		if (section != 'home') {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+			section = 'home';
+		}
 	}
 
 	function scrollAbout() {
-		closeNav()
-		window.scrollTo({ top: 10, behavior: 'smooth' });
+		closeNav();
+		if (section != 'about') {
+			window.scrollTo({ top: 10, behavior: 'smooth' });
+			section = 'about';
+		}
 	}
 
 	function scrollDownload() {
-		closeNav()
-		window.scrollTo({ top: 100, behavior: 'smooth' });
+		closeNav();
+		if (section != 'download') {
+			window.scrollTo({ bottom: 0, behavior: 'smooth' });
+			section = 'download';
+		}
 	}
 
 	function downloadPage() {

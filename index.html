@@ -6,7 +6,7 @@
 	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta name='description' content='The Vector Website'>
 	<meta name='author' content='cally72jhb'>
-	<link rel='icon' type='image/x-icon' href='assets/icon.png' />
+	<link rel='icon' type='image/x-icon' href='icon.png' />
 	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet'>
 
 	<title>Vector Addon</title>
@@ -24,6 +24,11 @@
   			scroll-behavior: smooth;
 		}
 
+		body {
+    		background-color: #24252A;
+    		font-family: 'Varela Round', sans-serif;
+		}
+
 		::-moz-selection {
   			color: #6EC282;
   			background: rgba(78, 138, 93, 0);
@@ -32,11 +37,6 @@
 		::selection {
   			color: #6EC282;
   			background: rgba(78, 138, 93, 0);
-		}
-
-		body {
-    		background-color: #24252A;
-    		font-family: 'Varela Round', sans-serif;
 		}
 
 		li, a, button {
@@ -139,7 +139,7 @@
     		}
 		}
 
-		/* Mobile Nav */
+		/* Mobile Navigation */
 
 		.overlay {
     		height: 100%;
@@ -211,6 +211,8 @@
 	<p>The open-source project</p>
 	<p>was made by cally72jhb.</p>
 	<p>It became public on Dec. 11. 2021</p>
+	<br><br>
+	<p></p>
 </div>
 
 <div id='download' class='download'>
@@ -253,30 +255,32 @@
 	</div>
 </div>
 
+/* cally pooped in here */
+
 <script>
-	const section = 'home';
+	var section = 1;
 
 	function scrollHome() {
 		closeNav();
-		if (section != 'home') {
+		if (section != 1) {
 			window.scrollTo({ top: 0, behavior: 'smooth' });
-			section = 'home';
+			section = 1;
 		}
 	}
 
 	function scrollAbout() {
 		closeNav();
-		if (section != 'about') {
+		if (section != 2) {
 			window.scrollTo({ top: 10, behavior: 'smooth' });
-			section = 'about';
+			section = 2;
 		}
 	}
 
 	function scrollDownload() {
 		closeNav();
-		if (section != 'download') {
+		if (section != 3) {
 			window.scrollTo({ bottom: 0, behavior: 'smooth' });
-			section = 'download';
+			section = 3;
 		}
 	}
 

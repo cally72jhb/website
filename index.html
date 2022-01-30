@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-	<meta charset='UTF-8'>
-	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <meta name='description' content='The Vector Website'>
-	<meta name='author' content='cally72jhb'>
-	<link rel='icon' type='image/x-icon' href='assets/icon.png' />
-	<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet'>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="The Vector Website">
+	<meta name="author" content="cally72jhb">
+	<link rel="icon" type="image/x-icon" href="assets/icon.png" />
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
 	<title>Vector Addon</title>
 
 	<style>
-		@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+		@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
 
 		* {
     		box-sizing: border-box;
@@ -26,7 +26,7 @@
 
 		body {
     		background-color: #24252A;
-    		font-family: 'Varela Round', sans-serif;
+    		font-family: "Varela Round", sans-serif;
 		}
 
 		::-moz-selection {
@@ -40,7 +40,7 @@
 		}
 
 		li, a, button {
-    		font-family: 'Montserrat', sans-serif;
+    		font-family: "Montserrat", sans-serif;
     		font-weight: 500;
     		font-size: 16px;
     		color: #EDF0F1;
@@ -93,6 +93,48 @@
 		.logo {
     		cursor: pointer;
     		color: #6EC282;
+		}
+
+		#features {
+			transition: all 0.3s ease 0.1s;
+  			border-radius: 15px 50px 30px 5px;
+  			border: 5px solid #303239;
+  			margin: 0px auto;
+    		display: flex;
+        	flex-wrap: wrap;
+  			justify-content: center;
+  			align-items: center;
+  			text-align: center;
+  			position: center;
+  			padding: 20px;
+  			width: 650px;
+  			height: 1550px;
+		}
+
+		#features > div {
+ 			 margin: 50px;
+		}
+
+		#features:hover {
+			transition: all 0.3s ease 0s;
+  			border-radius: 50px 50px 50px 50px;
+  			border: 8px solid #303239;
+  			background: #27282E;
+  			padding: 30px;
+  			width: 700px;
+  			height: 1600px;
+		}
+
+		#features .middle {
+  			margin: 0px;
+    		display: block;
+  			padding: 0px;
+		}
+
+		#features .right,
+		#features .left {
+			display: inline-block;
+			left: 100px;
 		}
 
 		.nav-pages {
@@ -196,7 +238,7 @@
 <body>
 
 
-<div id='home' class='home'>
+<div id="home" class="home">
 	<br><br><br><br><br><br><br><br><br>
 	<h1>Home</h1>
 	<br>
@@ -204,7 +246,7 @@
 	<p>for Meteor Client</p>
 </div>
 
-<div id='about' class='about'>
+<div id="about" class="about">
 	<br><br><br><br><br><br><br><br><br>
 	<h1>About</h1>
 	<br>
@@ -212,46 +254,107 @@
 	<p>was made by cally72jhb.</p>
 	<p>It became public on Dec. 11. 2021</p>
 	<br><br>
-	<p></p>
+	<h1>Features</h1><br>
+	<div id="features">
+		<div id="left">
+			<h3>Modules:</h3><br>
+
+			<p>Anti Desync</p>
+			<p>Anti Ghost</p>
+			<p>Anti Piston Push</p>
+			<p>Auto Ez</p>
+			<p>Bed Bomb</p>
+			<p>Bedrock Walk</p>
+			<p>Blink Plus</p>
+			<p>Bow Bomb</p>
+			<p>Cev Breaker</p>
+			<p>Chorus Predict</p>
+			<p>Clip Phase</p>
+			<p>Debug Tools</p>
+			<p>Entity Fly</p>
+			<p>No Fluid</p>
+			<p>Packet Consume</p>
+			<p>Packet Fly</p>
+			<p>Packet Place</p>
+			<p>Pearl Predict</p>
+			<p>Ping Spoof</p>
+			<p>Portal God Mode</p>
+			<p>Skeleton ESP</p>
+			<p>Speed Bypass</p>
+			<p>Step Plus</p>
+			<p>Storage Viewer</p>
+			<p>Strafe Plus</p>
+			<p>Surround Plus</p>
+			<p>Fast Tower</p>
+			<p>Vector Presence</p>
+			<p>Welcomer</p>
+			<p>Action Renderer</p>
+		</div>
+		<div id="right">
+			<h3>Commands:</h3><br>
+			<p>Mute</p>
+			<p>Statistics</p>
+			<p>Settings</p>
+			<p>Fakeplayer</p>
+			<p>Target</p>
+
+			<br><br>
+
+			<h3>HUD:</h3><br>
+			<p>Custom Chat</p>
+			<p>Player Radar</p>
+			<p>Statistics</p>
+
+			<br><br>
+		</div>
+		<div id="middle">
+			<h3>Custom Title Screen:</h3><br>
+
+			<img src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/titlescreen.png" width="95%" height="95%">
+
+			<br><br>
+		</div>
+	</div>
+	<br>
 </div>
 
-<div id='download' class='download'>
+<div id="download" class="download">
 	<br><br><br><br><br><br><br><br>
 	<h1>Download</h1>
 	<p>You can download it here:</p>
 	<br>
-	<a onclick='downloadPage()'><button>Download</button></a>
-	<a onclick='sourcesPage()'><button>Sources</button></a>
-	<a onclick='githubPage()'><button>GitHub</button></a>
+	<a onclick="downloadPage()"><button>Download</button></a>
+	<a onclick="sourcesPage()"><button>Sources</button></a>
+	<a onclick="githubPage()"><button>GitHub</button></a>
 	<br><br><br><br><br><br><br><br><br>
 </div>
 
-<div id='bottom' class='bottom'>
-	<br><span>Designed by </span><a style='color:#6EC282' href='https://github.com/cally72jhb'>cally72jhb</a><br><br>
+<div id="bottom" class="bottom">
+	<br><span>Designed by </span><a style="color:#6EC282" href="https://github.com/cally72jhb">cally72jhb</a><br><br>
 </div>
 
 
 <header>
-	<h1 class='logo'>Vector Addon</h1>
+	<h1 class="logo">Vector Addon</h1>
 	<nav>
-		<ul class='nav-pages'>
-			<li><a onclick='scrollHome()' href='#home'>Home</a></li>
-			<li><a onclick='scrollAbout()' href='#about'>About</a></li>
-			<li><a onclick='scrollDownload()' href='#download'>Download</a></li>
+		<ul class="nav-pages">
+			<li><a onclick="scrollHome()" href="#home">Home</a></li>
+			<li><a onclick="scrollAbout()" href="#about">About</a></li>
+			<li><a onclick="scrollDownload()" href="#download">Download</a></li>
 		</ul>
 	</nav>
-	<a onclick='openDc()' class='cta' href='#'><button>Discord</button></a>
-	<a onclick='openNav()' class='menu' href='#'><button>Menu</button></a>
+	<a onclick="openDc()" class="cta" href="#"><button>Discord</button></a>
+	<a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
 </header>
 
 
 
-<div id='mobile-menu' class='overlay'>
-	<a class='close' onclick='closeNav()'>&times;</a>
-	<div class='overlay-content'>
-		<a onclick='scrollHome()' href='#home'>Home</a>
-		<a onclick='scrollAbout()' href='#about'>About</a>
-		<a onclick='scrollDownload()' href='#download'>Download</a>
+<div id="mobile-menu" class="overlay">
+	<a class="close" onclick="closeNav()">&times;</a>
+	<div class="overlay-content">
+		<a onclick="scrollHome()" href="#home">Home</a>
+		<a onclick="scrollAbout()" href="#about">About</a>
+		<a onclick="scrollDownload()" href="#download">Download</a>
 	</div>
 </div>
 
@@ -261,7 +364,7 @@
 	function scrollHome() {
 		closeNav();
 		if (section != 1) {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
+			window.scrollTo({ top: 0, behavior: "smooth" });
 			section = 1;
 		}
 	}
@@ -269,7 +372,7 @@
 	function scrollAbout() {
 		closeNav();
 		if (section != 2) {
-			window.scrollTo({ top: 10, behavior: 'smooth' });
+			window.scrollTo({ top: 10, behavior: "smooth" });
 			section = 2;
 		}
 	}
@@ -277,33 +380,33 @@
 	function scrollDownload() {
 		closeNav();
 		if (section != 3) {
-			window.scrollTo({ bottom: 0, behavior: 'smooth' });
+			window.scrollTo({ bottom: 0, behavior: "smooth" });
 			section = 3;
 		}
 	}
 
 	function downloadPage() {
-		window.open('https://github.com/cally72jhb/vector-addon/releases');
+		window.open("https://github.com/cally72jhb/vector-addon/releases");
 	}
 
 	function sourcesPage() {
-		window.open('https://github.com/cally72jhb/vector-addon');
+		window.open("https://github.com/cally72jhb/vector-addon");
 	}
 
 	function githubPage() {
-		window.open('https://github.com/cally72jhb');
+		window.open("https://github.com/cally72jhb");
 	}
 
 	function openDc() {
-		window.open('https://discord.gg/A3nYgbKeXR', '_blank').focus();
+		window.open("https://discord.gg/A3nYgbKeXR", "_blank").focus();
 	}
 
 	function openNav() {
-		document.getElementById('mobile-menu').style.width = '100%';
+		document.getElementById("mobile-menu").style.width = "100%";
 	}
 
 	function closeNav() {
-		document.getElementById('mobile-menu').style.width = '0';
+		document.getElementById("mobile-menu").style.width = "0";
 	}
 </script>
 </body>

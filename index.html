@@ -1,424 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="The Vector Website">
-	<meta name="author" content="cally72jhb">
-	<link rel="icon" type="image/x-icon" href="assets/icon.png" />
-	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="The Vector Website">
+    <meta name="author" content="cally72jhb">
+    <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"/>
 
-	<title>Vector Addon</title>
+    <title>Vector Addon</title>
 
-	<style>
-		@import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Montserrat:500");
 
-		* {
-    		box-sizing: border-box;
-    		margin: 0;
-    		padding: 0;
-		}
+        @font-face {
+            font-family: "Varela Round", sans-serif;
+        }
 
-		html {
-  			scroll-behavior: smooth;
-		}
+        ::-moz-selection {
+            color: #6EC282;
+            background: rgba(78, 138, 93, 0);
+        }
 
-		body {
-    		background-color: #24252A;
-    		font-family: "Varela Round", sans-serif;
-		}
+        ::selection {
+            color: #6EC282;
+            background: rgba(78, 138, 93, 0);
+        }
 
-		::-moz-selection {
-  			color: #6EC282;
-  			background: rgba(78, 138, 93, 0);
-		}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-		::selection {
-  			color: #6EC282;
-  			background: rgba(78, 138, 93, 0);
-		}
+        html,
+        body {
+            color: #FFFFFF;
+            background-color: #000000;
+            font-family: "Varela Round", sans-serif;
+        }
 
-		img {
-  			border-radius: 10px;
-		}
+        .container {
+            width: 100%;
+            height: 100%;
+            color: #FFFFFF;
+            font-weight: 700;
+            letter-spacing: 0.0625em;
+            line-height: 1.35;
+            background-color: #000000;
+            background-image: linear-gradient(
+                #24252A,
+                #24252A,
+                #000000,
+                #000000,
+                #000000
+            );
+            font-family: "Varela Round", sans-serif;
+            scroll-behavior: smooth;
+        }
 
-		li, a, button {
-    		font-family: "Montserrat", sans-serif;
+        .wrapper {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 300px;
+        }
+
+        .parallax-layer {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            transform-style: preserve-3d;
+        }
+
+        .parallax__layer {
+            position: absolute;
+            top: -60%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+
+
+        /* Layers */
+
+
+
+        .layer-0 {
+            background: url("./img/layer-0.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(-600px) scale(3);
+            z-index: 1;
+        }
+
+        .layer-1 {
+            background: url("./img/layer-1.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(-525px) scale(2.75);
+            z-index: 2;
+        }
+
+        .layer-2 {
+            background: url("./img/layer-4.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(-400px) scale(2.33333333);
+            z-index: 3;
+        }
+
+        .layer-3 {
+            background: url("./img/layer-2.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(-250px) scale(1.833333333);
+            z-index: 4;
+        }
+
+        .layer-4 {
+            background: url("./img/layer-3.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(-125px) scale(1.4167);
+            z-index: 5;
+        }
+
+        .layer-5 {
+            background: url("./img/layer-5.png") no-repeat center;
+            background-size: cover;
+            transform: translateZ(0) scale(1);
+            z-index: 6;
+        }
+
+        .fog-layer {
+            background: linear-gradient(
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0) 25%,
+                rgba(0, 0, 0, 1) 100%
+            );
+            top: -15%;
+            background-size: cover;
+            transform: translateZ(0) scale(1);
+            z-index: 7;
+        }
+
+
+
+        /* Containers */
+
+
+
+        .foreground-text {
+            top: 60%;
+            left: 50%;
+            right: 0;
+            width: 100%;
+            max-width: 100%;
+            position: absolute;
+            text-align: center;
+            font-size: 600%;
+            transform: translate(-50%, -50%);
+            transition: all 0.25s ease 0s;
+            cursor: pointer;
+        }
+
+        .info-container {
+            background: linear-gradient(
+                rgba(0, 0, 0, 1) 15%,
+                rgba(5, 5, 5, 1) 25%,
+                rgba(25, 25, 25, 1) 50%,
+                rgba(75, 75, 75, 1) 75%,
+                rgba(150, 150, 150, 1) 100%
+            );
+            transform: translateZ(0) scale(1);
+            z-index: 8;
+            top: -10px;
+            display: flex;
+            height: 195%;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .text-container {
+            transform: translateZ(0) scale(1);
+            z-index: 9;
+            top: 15%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100%;
+            position: absolute;
+            text-align: center;
+            font-size: 16px;
+        }
+
+
+
+        /* Utilities */
+
+
+
+        button {
+            padding: 9px 25px;
+            background-color: rgba(0, 135, 170, 1);
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.3s ease 0s;
+            font-family: "Montserrat", sans-serif;
     		font-weight: 500;
     		font-size: 16px;
     		color: #EDF0F1;
     		text-decoration: none;
+        }
+
+        button:hover {
+            background-color: rgba(0, 135, 170, 0.8);
+        }
+
+        .text {
+            font-family: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        }
+
+        .description {
+            display: block;
+        }
+
+        img {
+  			border-radius: 10px;
 		}
 
-		header {
-    		display: flex;
-    		justify-content: space-between;
-    		align-items: center;
-    		padding: 30px 10%;
-
-    		position: fixed;
-  			top: 0;
-  			width: 100%;
-  			padding-top: 25px;
-  			background-color: #303239;
+		.image {
+		    width: 576px;
+		    height: 324px;
+		    transition: all 0.15s ease 0s;
 		}
 
-		.home {
-			margin: 10px;
-			font-size: 25px;
-			position: center;
-			text-align: center;
-			color: rgba(225, 225, 225, 255);
-		}
+        .transparent {
+            top: 50%;
+            height: 750px;
+            max-width: 100%;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            color: rgb(100, 100, 100);
+        }
 
-		.about {
-			margin: 10px;
-			font-size: 25px;
-			position: center;
-			text-align: center;
-			color: rgba(225, 225, 225, 255);
-		}
+        .light {
+            margin: 0;
+            height: 475px;
+            max-width: 100%;
+            color: rgb(25, 25, 25);
+            background-color: rgb(200, 200, 200);
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
 
-		.download {
-			font-size: 25px;
-			position: center;
-			text-align: center;
-			color: rgba(225, 225, 225, 255);
-		}
+        .dark {
+            top: 50px;
+            margin: 0;
+            height: 550px;
+            max-width: 100%;
+            color: rgb(215, 215, 215);
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
 
-		.bottom {
-			font-size: 15px;
-			position: center;
-			text-align: center;
-			color: rgba(225, 225, 225, 255);
-		}
+        /* For small screens */
 
-		.logo {
-    		cursor: pointer;
-    		color: #6EC282;
-		}
-
-		#features {
-			transition: all 0.3s ease 0.1s;
-  			border-radius: 15px 50px 30px 5px;
-  			border: 5px solid #303239;
-  			margin: 0px auto;
-    		display: flex;
-        	flex-wrap: wrap;
-  			justify-content: center;
-  			align-items: center;
-  			text-align: center;
-  			position: center;
-  			padding: 20px;
-  			width: 650px;
-  			height: 1550px;
-		}
-
-		#features > div {
- 			 margin: 50px;
-		}
-
-		#features:hover {
-			transition: all 0.3s ease 0s;
-  			border-radius: 50px 50px 50px 50px;
-  			border: 8px solid #303239;
-  			background: #27282E;
-  			padding: 30px;
-  			width: 700px;
-  			height: 1600px;
-		}
-
-		#features .middle {
-  			margin: 0px;
-    		display: block;
-  			padding: 0px;
-		}
-
-		#features .right,
-		#features .left {
-			display: inline-block;
-			left: 100px;
-		}
-
-		.nav-pages {
-   		 	list-style: none;
-		}
-
-		.nav-pages li {
-   			display: inline-block;
-    		padding: 0px 20px;
-		}
-
-		.nav-pages li a {
-    		transition: all 0.3s ease 0s;
-		}
-
-		.nav-pages li a:hover {
-    		color: #0088A8
-		}
-
-		.menu {
-    		display: none;
-		}
-
-		button {
-    		padding: 9px 25px;
-    		background-color: rgba(0, 135, 170, 1);
-    		cursor: pointer;
-    		border: none;
-    		border-radius: 50px;
-    		transition: all 0.3s ease 0s;
-		}
-
-		button:hover {
-    		background-color: rgba(0, 135, 170, 0.8);
-		}
-
-		@media only screen and (max-width: 850px) {
-    		.nav-pages, .cta {
-        		display: none;
+		@media only screen and (max-width: 1100px) {
+    		.description {
+        		display: none !important;
     		}
 
-    		.menu {
-        		display: inherit;
-    		}
+    		.foreground-text {
+                font-size: 400%;
+            }
 
-    		#features {
-				transition: all 0.5s ease 0s;
-  				border: none;
-				border-style: none;
-  				margin: 0px auto;
-    			display: block;
-  				justify-content: center;
-  				align-items: center;
-  				text-align: center;
-  				position: center;
-  				padding: 20px;
-  				width: 390px;
-  				height: 2000px;
-			}
+            .text-container {
+                font-size: 13px;
+            }
 
-			#features:hover {
-				transition: all 0.5s ease 0s;
-  				border: none;
-				border-style: none;
-  				margin: 0px auto;
-    			display: block;
-  				justify-content: center;
-  				align-items: center;
-  				text-align: center;
-  				position: center;
-  				padding: 20px;
-  				width: 390px;
-  				height: 2000px;
-			}
+            .transparent {
+                font-size: 15px;
+            }
+
+            .light {
+                height: 700px;
+            }
+
+            .image {
+		        width: 384px;
+		        height: 216px;
+		    }
 		}
-
-		/* Mobile Navigation */
-
-		.overlay {
-    		height: 100%;
-    		width: 0;
-    		position: fixed;
-    		z-index: 1;
-    		left: 0;
-    		top: 0;
-    		background-color: #24252A;
-    		overflow-x: hidden;
-    		transition: all 0.5s ease 0s;
-		}
-
-		.overlay-content {
-    		display: flex;
-    		height: 100%;
-    		flex-direction: column;
-    		align-items: center;
-    		justify-content: center;
-		}
-
-		.overlay a {
-    		padding: 15px;
-    		font-size: 36px;
-    		display: block;
-    		transition: all 0.3s ease 0s;
-		}
-
-		.overlay a:hover, .overlay a:focus {
-    		color: #0088A9;
-		}
-
-		.overlay .close {
-    		position: absolute;
-    		top: 20px;
-    		right: 45px;
-    		font-size: 60px;
-    		cursor: pointer;
-		}
-
-		@media screen and (max-height: 450px) {
-    		.overlay a {
-        		font-size: 20px
-    		}
-
-    		.overlay .close {
-        		font-size: 40px;
-        		top: 15px;
-        		right: 35px
-    		}
-		}
-	</style>
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="wrapper">
+        <div class="parallax-layer">
+            <div class="parallax__layer layer-0"></div>
+            <div class="parallax__layer layer-1"></div>
+            <div class="parallax__layer layer-2"></div>
+            <div class="parallax__layer layer-3"></div>
+            <div class="parallax__layer layer-4">
+                <div class="foreground-text">VECTOR</div>
+            </div>
+            <div class="parallax__layer layer-5"></div>
+            <div class="parallax__layer fog-layer"></div>
+        </div>
 
+        <div class="parallax-layer info-container">
+            <div class="text-container text">
+                <div class="transparent">
+                    <div>
+                        <p style="color: rgb(225, 225, 225); font-size: 25px;">Modules</p>
+                        <br>
+                        <span>Action Renderer</span><span style="display:inline" class="description">  ||  Renders certain client-side block interactions</span><br>
+                        <span>Anti Desync</span><span style="display:inline" class="description">  ||  Trys to stop you from desyncing with blocks</span><br>
+                        <span>Anti Ghost</span><span style="display:inline" class="description">  ||  Interacts with blocks in the world to force the server to update them</span><br>
+                        <span>Anti Piston Push</span><span style="display:inline" class="description">  ||  Trys to prevent horizontal piston pushing</span><br>
+                        <span>Auto Ez</span><span style="display:inline" class="description">  ||  Automatically sends custom messages after killing or popping a player</span><br>
+                        <span>Bed Bomb</span><span style="display:inline" class="description">  ||  Places and blows up near your targets to deal a lot of damage</span><br>
+                        <span>Bedrock Walk</span><span style="display:inline" class="description">  ||  Makes walking over bedrock easier</span><br>
+                        <span>Blink Plus</span><span style="display:inline" class="description">  ||  A better version of blink that makes you seem like you're lagging</span><br>
+                        <span>Bow Bomb</span><span style="display:inline" class="description">  ||  Spoofs projectiles to make them travel further and do more damage</span><br>
+                        <span>Cev Breaker</span><span style="display:inline" class="description">  || Places a crystal over the targets head and breaks it to deal much damage</span><br>
+                        <span>Chorus Predict</span><span style="display:inline" class="description">  ||  Predicts where your chorus fruit will teleport you</span><br>
+                        <span>Clip Phase</span><span style="display:inline" class="description">  ||  Allows you to essentially phase when in blocks</span><br>
+                        <span>Debug Tools</span><span style="display:inline" class="description">  ||  Prints out some debug in your chat</span><br>
+                        <span>Entity Fly</span><span style="display:inline" class="description">  ||  Fly with any living rideable entity</span><br>
+                        <span>No Fluid</span><span style="display:inline" class="description">  ||  Removes water and lava collision for you</span><br>
+                        <span>Packet Consume</span><span style="display:inline" class="description">  ||  Consume eatable or drinkable items with packets only</span><br>
+                        <span>Packet Fly</span><span style="display:inline" class="description">  ||  Fly with packets on most servers</span><br>
+                        <span>Packet Place</span><span style="display:inline" class="description">  || Place blocks with packets to bypass desyncing with the server</span><br>
+                        <span>Pearl Predict</span><span style="display:inline" class="description">  ||  Predicts the landing spot of thrown entities</span><br>
+                        <span>Ping Spoof</span><span style="display:inline" class="description">  ||  Spoofs your ping without interfering your gameplay</span><br>
+                        <span>Portal God Mode</span><span style="display:inline" class="description">  ||  Gives you invincibility when leaving a portal</span><br>
+                        <span>Skeleton ESP</span><span style="display:inline" class="description">  ||  Renders a players skeleton</span><br>
+                        <span>Speed Bypass</span><span style="display:inline" class="description">  || A speed bypass for some servers</span><br>
+                        <span>Step Plus</span><span style="display:inline" class="description">  ||  A 1-Block step for the NCP-Anticheat</span><br>
+                        <span>Storage Viewer</span><span style="display:inline" class="description">  ||  Shows you the content of storage blocks around you</span><br>
+                        <span>Strafe Plus</span><span style="display:inline" class="description">  ||  Allows you to walk with the same speed in every direction</span><br>
+                        <span>Surround Plus</span><span style="display:inline" class="description">  ||  Surrounds you in inexplodable blocks to prevent explosion damage</span><br>
+                        <span>Fast Tower</span><span style="display:inline" class="description">  ||  A bypass for faster towering on most servers</span><br>
+                        <span>Vector Presence</span><span style="display:inline" class="description">  ||  A Presence for Discord to show that you are playing Vector Addon</span><br>
+                        <span>Welcomer</span><span style="display:inline" class="description">  ||  Sends a custom message when a player joins or leaves the server</span><br>
+                    </div>
+                </div>
+                <div class="light">
+                    <img class="image" src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/titlescreen.png">
+                    <div align="left">
+                        <p style="color: rgb(5, 5, 5); font-size: 25px;">Custom Title Screen:</p>
+                        <br>
+                        <p>Vector has a very customizable Title Screen</p>
+                        <p>that is toggleable in the config.</p>
+                        <p>You can drag and drop elements around the screen</p>
+                        <p>or disable them. The action when you press them</p>
+                        <p>can simply be edited by right-clicking them in</p>
+                        <p>the editor. The background of the Title Screen</p>
+                        <p>moves smoothly with the mouse.</p>
+                    </div>
+                </div>
 
-<div id="home" class="home">
-	<br><br><br><br><br><br><br><br><br>
-	<h1>Home</h1>
-	<br>
-	<p>Vector Addon is a powerful Addon</p>
-	<p>for Meteor Client</p>
-</div>
-
-<div id="about" class="about">
-	<br><br><br><br><br><br><br><br><br>
-	<h1>About</h1>
-	<br>
-	<p>The open-source project</p>
-	<p>was made by cally72jhb.</p>
-	<p>It became public on Dec. 11. 2021</p>
-	<br><br>
-	<h1>Features</h1><br>
-	<div id="features">
-		<div id="left">
-			<h3>Modules:</h3><br>
-
-			<p>Anti Desync</p>
-			<p>Anti Ghost</p>
-			<p>Anti Piston Push</p>
-			<p>Auto Ez</p>
-			<p>Bed Bomb</p>
-			<p>Bedrock Walk</p>
-			<p>Blink Plus</p>
-			<p>Bow Bomb</p>
-			<p>Cev Breaker</p>
-			<p>Chorus Predict</p>
-			<p>Clip Phase</p>
-			<p>Debug Tools</p>
-			<p>Entity Fly</p>
-			<p>No Fluid</p>
-			<p>Packet Consume</p>
-			<p>Packet Fly</p>
-			<p>Packet Place</p>
-			<p>Pearl Predict</p>
-			<p>Ping Spoof</p>
-			<p>Portal God Mode</p>
-			<p>Skeleton ESP</p>
-			<p>Speed Bypass</p>
-			<p>Step Plus</p>
-			<p>Storage Viewer</p>
-			<p>Strafe Plus</p>
-			<p>Surround Plus</p>
-			<p>Fast Tower</p>
-			<p>Vector Presence</p>
-			<p>Welcomer</p>
-			<p>Action Renderer</p>
-		</div>
-		<div id="right">
-			<h3>Commands:</h3><br>
-			<p>Mute</p>
-			<p>Settings</p>
-			<p>Statistics</p>
-			<p>Fakeplayer</p>
-			<p>Target</p>
-
-			<br><br>
-
-			<h3>HUD:</h3><br>
-			<p>Custom Chat</p>
-			<p>Player Radar</p>
-			<p>Statistics</p>
-
-			<br><br>
-		</div>
-		<div id="middle">
-			<h3>Custom Title Screen:</h3><br>
-			<img src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/titlescreen.png" width="95%" height="95%">
-
-			<br><br>
-		</div>
-	</div>
-	<br>
-</div>
-
-<div id="download" class="download">
-	<br><br><br><br><br><br><br><br>
-	<h1>Download</h1>
-	<p>You can download it here:</p>
-	<br>
-	<a onclick="downloadPage()"><button>Download</button></a>
-	<a onclick="sourcesPage()"><button>Sources</button></a>
-	<a onclick="githubPage()"><button>GitHub</button></a>
-	<br><br><br><br><br><br><br><br><br>
-</div>
-
-<div id="bottom" class="bottom">
-	<br><span>Designed by </span><a style="color:#6EC282" href="https://github.com/cally72jhb">cally72jhb</a><br><br>
+                <div class="dark">
+                    <div align="left">
+                        <h3 style="color: rgb(255, 255, 255); font-size: 25px;">About:</h3>
+                        <br>
+                        <span>Vector Addon is a powerful Addon for </span><a style="color:#A5D6B1; text-decoration: none;" href="https://meteorclient.com/" target="_blank">Meteor Client</a><span>.</span><br>
+                        <p>It was made public on Dec. 11. 2021</p>
+                        <span>by its developer </span><a style="color:#A5D6B1; text-decoration: none;" href="https://github.com/cally72jhb" target="_blank">cally72jhb</a><span>.</span>
+                    </div>
+                    <div>
+                        <a onclick="downloadPage()"><button>Download</button></a>
+                        <a onclick="sourcesPage()"><button>Sources</button></a>
+                        <a onclick="githubPage()"><button>GitHub</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
-<header>
-	<h1 class="logo">Vector Addon</h1>
-	<nav>
-		<ul class="nav-pages">
-			<li><a onclick="scrollHome()" href="#home">Home</a></li>
-			<li><a onclick="scrollAbout()" href="#about">About</a></li>
-			<li><a onclick="scrollDownload()" href="#download">Download</a></li>
-		</ul>
-	</nav>
-	<a onclick="openDc()" class="cta" href="#"><button>Discord</button></a>
-	<a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
-</header>
-
-
-
-<div id="mobile-menu" class="overlay">
-	<a class="close" onclick="closeNav()">&times;</a>
-	<div class="overlay-content">
-		<a onclick="scrollHome()" href="#home">Home</a>
-		<a onclick="scrollAbout()" href="#about">About</a>
-		<a onclick="scrollDownload()" href="#download">Download</a>
-	</div>
-</div>
 
 <script>
-	var section = 1;
 
-	function scrollHome() {
-		closeNav();
-		if (section != 1) {
-			window.scrollTo({ top: 0, behavior: "smooth" });
-			section = 1;
-		}
-	}
-
-	function scrollAbout() {
-		closeNav();
-		if (section != 2) {
-			window.scrollTo({ top: 10, behavior: "smooth" });
-			section = 2;
-		}
-	}
-
-	function scrollDownload() {
-		closeNav();
-		if (section != 3) {
-			window.scrollTo({ bottom: 0, behavior: "smooth" });
-			section = 3;
-		}
-	}
-
-	function downloadPage() {
+    function downloadPage() {
 		window.open("https://github.com/cally72jhb/vector-addon/releases");
 	}
 
@@ -434,13 +414,7 @@
 		window.open("https://discord.gg/A3nYgbKeXR", "_blank").focus();
 	}
 
-	function openNav() {
-		document.getElementById("mobile-menu").style.width = "100%";
-	}
-
-	function closeNav() {
-		document.getElementById("mobile-menu").style.width = "0";
-	}
 </script>
+
 </body>
 </html>

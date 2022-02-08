@@ -163,6 +163,9 @@
             transform: translate(-50%, -50%);
             transition: all 0.25s ease 0s;
             cursor: pointer;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 1s ease-in-out infinite alternate;
         }
 
         .info-container {
@@ -313,6 +316,16 @@
 		        height: 216px;
 		    }
 		}
+
+		@-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6EC282;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #6EC282, 0 0 40px #6EC282;
+            }
+        }
     </style>
 </head>
 <body>

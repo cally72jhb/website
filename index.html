@@ -9,13 +9,13 @@
     <meta name="keywords" content="Minecraft, Meteor Client, Vector">
     <meta name="author" content="cally72jhb">
     <link rel="icon" type="image/x-icon" href="./assets/icon.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"/>
 
     <title>Vector Addon</title>
 
     <style>
+        @import url("https://fonts.googleapis.com/css?family=Varela+Round");
         @import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+        @import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
 
         @font-face {
             font-family: "Varela Round", sans-serif;
@@ -159,13 +159,14 @@
             max-width: 100%;
             position: absolute;
             text-align: center;
-            font-size: 600%;
+            font-size: 11.12347vh;
             transform: translate(-50%, -50%);
             transition: all 0.25s ease 0s;
+            -webkit-transition: all 0.25s ease 0s;
             cursor: pointer;
-            -webkit-animation: glow 1s ease-in-out infinite alternate;
-            -moz-animation: glow 1s ease-in-out infinite alternate;
-            animation: glow 1s ease-in-out infinite alternate;
+            -webkit-animation: big-glow 1s ease-in-out infinite alternate;
+            -moz-animation: big-glow 1s ease-in-out infinite alternate;
+            animation: big-glow 1s ease-in-out infinite alternate;
         }
 
         .info-container {
@@ -180,13 +181,14 @@
             z-index: 8;
             top: -10px;
             display: flex;
-            height: 195%;
+            height: 2000px;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
         .text-container {
+            font-family: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
             transform: translateZ(0) scale(1);
             z-index: 9;
             top: 15%;
@@ -205,6 +207,8 @@
 
 
 
+        /* Button */
+
         button {
             padding: 9px 25px;
             background-color: rgba(0, 135, 170, 1);
@@ -212,6 +216,7 @@
             border: none;
             border-radius: 50px;
             transition: all 0.3s ease 0s;
+            -webkit-transition: all 0.3s ease 0s;
             font-family: "Montserrat", sans-serif;
     		font-weight: 500;
     		font-size: 16px;
@@ -221,16 +226,93 @@
 
         button:hover {
             background-color: rgba(0, 135, 170, 0.8);
+            font-size: 20px;
         }
 
-        .text {
-            font-family: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+        /* Animated Title Texts */
+
+        .title-all {
+            width: -moz-fit-content;
+            width: fit-content
+            block-size: fit-content
+            max-width: 100% auto;
+            cursor: pointer;
+            font-size: 25px;
+            transition: all 0.25s ease 0s;
+            -webkit-transition: all 0.25s ease 0s;
+            position: relative;
         }
 
-        .description {
+        .title-all:hover {
+            font-size: 27px;
+        }
+
+        /* Animated Center Text */
+
+        .center-title:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #FFFFFF;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.25s ease-in-out;
+            -webkit-transition: all 0.25s ease-in-out;
+        }
+
+        .center-title:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /* Animated Left Text */
+
+        .left-title:before {
+            content: "";
+            position: absolute;
             display: block;
-            color: rgb(100, 100, 100);
+            width: 100%;
+            height: 2.5px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transform: scaleX(0);
+            transform-origin: top left;
+            transition: transform 0.3s ease;
+            -webkit-transition: transform 0.3 ease;
         }
+
+        .left-title:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /* Animated Slow Left Text */
+
+        .left-title-slow:before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 2.5px;
+            bottom: 0;
+            left: 0;
+            background-color: #FFFFFF;
+            transform: scaleX(0);
+            transform-origin: top left;
+            transition: transform 0.5s ease;
+            -webkit-transition: transform 0.5 ease;
+        }
+
+        .left-title-slow:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        /* Image */
 
         img {
   			border-radius: 10px;
@@ -239,8 +321,20 @@
 		.image {
 		    width: 576px;
 		    height: 324px;
-		    transition: all 0.15s ease 0s;
+		    -webkit-transform: scale(1);
+	        transform: scale(1);
+	        -webkit-transition: 0.75s ease-in-out;
+	        transition: 0.75s ease-in-out;
 		}
+
+		.image:hover {
+		    width: 633px;
+		    height: 356px;
+		    -webkit-transform: scale(1.015);
+	        transform: scale(1.015);
+		}
+
+        /* Sections */
 
         .transparent {
             top: 50%;
@@ -283,6 +377,23 @@
             gap: 50px;
         }
 
+        /* Other */
+
+        .description {
+            display: block;
+            color: rgb(100, 100, 100);
+        }
+
+        .custom-link {
+            text-decoration: none;
+            transition: all 0.25s ease 0s;
+            -webkit-transition: all 0.25s ease 0s;
+        }
+
+        .custom-link:hover {
+            filter: brightness(120%);
+        }
+
         /* For small screens */
 
 		@media only screen and (max-width: 1100px) {
@@ -291,7 +402,10 @@
     		}
 
     		.foreground-text {
-                font-size: 400%;
+                font-size: 8.89877vh;
+                -webkit-animation: small-glow 1.5s ease-in-out infinite alternate;
+                -moz-animation: small-glow 1.5s ease-in-out infinite alternate;
+                animation: small-glow 1.5s ease-in-out infinite alternate;
             }
 
             .info-container {
@@ -308,7 +422,6 @@
 
             .light {
                 height: 700px;
-                gap: 0;
             }
 
             .image {
@@ -317,13 +430,23 @@
 		    }
 		}
 
-		@-webkit-keyframes glow {
+		@-webkit-keyframes big-glow {
             from {
-                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6EC282;
+                text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #6EC282;
             }
 
             to {
-                text-shadow: 0 0 20px #fff, 0 0 30px #6EC282, 0 0 40px #6EC282;
+                text-shadow: 0 0 20px #FFFFFF, 0 0 30px #6EC282, 0 0 40px #6EC282;
+            }
+        }
+
+        @-webkit-keyframes small-glow {
+            from {
+                text-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 20px #6EC282;
+            }
+
+            to {
+                text-shadow: 0 0 20px #FFFFFF, 0 0 25px #6EC282, 0 0 35px #6EC282;
             }
         }
     </style>
@@ -347,7 +470,10 @@
             <div class="text-container text">
                 <div class="transparent">
                     <div>
-                        <p style="color: rgb(225, 225, 225); font-size: 25px;">Modules</p>
+                        <center>
+                            <p class="title-all center-title" style="color: rgb(225, 225, 225);">Modules</p>
+                        </center>
+
                         <br>
                         <div style="color: #878787;">
                             <span>Action Renderer</span><span style="display:inline" class="description">  ||  Renders certain client-side block interactions</span><br>
@@ -387,7 +513,7 @@
                 <div class="light">
                     <img class="image" src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/titlescreen.png">
                     <div align="left">
-                        <p style="color: rgb(5, 5, 5); font-size: 25px;">Custom Title Screen:</p>
+                        <p class="title-all left-title" style="color: rgb(5, 5, 5); font-size: 25px;">Custom Title Screen:</p>
                         <br>
                         <p>Vector has a very customizable Title Screen</p>
                         <p>that is toggleable in the config.</p>
@@ -401,44 +527,22 @@
 
                 <div class="dark">
                     <div align="left">
-                        <h3 style="color: rgb(255, 255, 255); font-size: 25px;">About:</h3>
+                        <h3 class="title-all left-title-slow" style="color: rgb(255, 255, 255); font-size: 25px;">About:</h3>
                         <br>
-                        <span>Vector Addon is a powerful Addon for </span><a style="color:#A5D6B1; text-decoration: none;" href="https://meteorclient.com/" target="_blank">Meteor Client</a><span>.</span><br>
+                        <span>Vector Addon is a powerful Addon for </span><a class="custom-link" style="color:#A5D6B1;" href="https://meteorclient.com/" target="_blank">Meteor Client</a><span>.</span><br>
                         <p>It was made public on Dec. 11. 2021</p>
-                        <span>by its developer </span><a style="color:#A5D6B1; text-decoration: none;" href="https://github.com/cally72jhb" target="_blank">cally72jhb</a><span>.</span>
+                        <span>by its developer </span><a class="custom-link" style="color:#A5D6B1;" href="https://github.com/cally72jhb" target="_blank">cally72jhb</a><span>.</span>
                     </div>
                     <div>
-                        <a onclick="downloadPage()"><button>Download</button></a>
-                        <a onclick="sourcesPage()"><button>Sources</button></a>
-                        <a onclick="githubPage()"><button>GitHub</button></a>
+                        <a href="https://github.com/cally72jhb/vector-addon/releases" target="_blank"><button>Download</button></a>
+                        <a href="https://discord.gg/A3nYgbKeXR" target="_blank"><button>Discord</button></a>
+                        <a href="https://github.com/cally72jhb" target="_blank"><button>GitHub</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<script>
-
-    function downloadPage() {
-		window.open("https://github.com/cally72jhb/vector-addon/releases");
-	}
-
-	function sourcesPage() {
-		window.open("https://github.com/cally72jhb/vector-addon");
-	}
-
-	function githubPage() {
-		window.open("https://github.com/cally72jhb");
-	}
-
-	function openDc() {
-		window.open("https://discord.gg/A3nYgbKeXR", "_blank").focus();
-	}
-
-</script>
 
 </body>
 </html>

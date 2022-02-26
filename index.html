@@ -83,6 +83,11 @@
             left: 0;
             right: 0;
             bottom: 0;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
 
@@ -162,11 +167,18 @@
             font-size: 11.12347vh;
             transform: translate(-50%, -50%);
             transition: all 0.25s ease 0s;
+            
             -webkit-transition: all 0.25s ease 0s;
             cursor: pointer;
+
             -webkit-animation: big-glow 1s ease-in-out infinite alternate;
             -moz-animation: big-glow 1s ease-in-out infinite alternate;
             animation: big-glow 1s ease-in-out infinite alternate;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .info-container {
@@ -241,6 +253,11 @@
             transition: all 0.25s ease 0s;
             -webkit-transition: all 0.25s ease 0s;
             position: relative;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .title-all:hover {
@@ -308,13 +325,19 @@
 
         img {
   			border-radius: 10px;
+  			-webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
 		}
 
 		.image {
 		    width: 576px;
 		    height: 324px;
+
 		    -webkit-transform: scale(1);
 	        transform: scale(1);
+
 	        -webkit-transition: 0.75s ease-in-out;
 	        transition: 0.75s ease-in-out;
 		}
@@ -396,6 +419,7 @@
 
     		.foreground-text {
                 font-size: 8.89877vh;
+
                 -webkit-animation: small-glow 1.5s ease-in-out infinite alternate;
                 -moz-animation: small-glow 1.5s ease-in-out infinite alternate;
                 animation: small-glow 1.5s ease-in-out infinite alternate;
@@ -425,8 +449,10 @@
 		    .image:hover {
 		        width: 384px;
 		        height: 216px;
+
 		        -webkit-transform: scale(1);
 	            transform: scale(1);
+
 	            -webkit-transition: 0.75s ease-in-out;
 	            transition: 0.75s ease-in-out;
 		    }

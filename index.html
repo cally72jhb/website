@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="The official website for Vector Addon">
+
+    <meta name="description" content="The official Vector Website">
     <meta name="theme-color" content="#B5B5B5">
-    <meta name="keywords" content="Minecraft, Meteor Client, Vector">
+    <meta name="keywords" content="Minecraft, Meteor Client, Meteor Addon, Vector Addon, Vector">
     <meta name="author" content="cally72jhb">
+
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/cally72jhb/website/main/assets/icon.png" />
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
 
     <title>Vector Addon</title>
 
     <style>
         @import url("https://fonts.googleapis.com/css?family=Varela+Round");
         @import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+        @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
         @import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
 
         @font-face {
@@ -35,6 +40,12 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        *:focus,
+        *:active {
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html,
@@ -91,15 +102,14 @@
         }
 
 
-
         /* Layers */
-
 
 
         .layer-0 {
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-0.png") no-repeat center;
             background-size: cover;
             transform: translateZ(-600px) scale(3);
+	        -webkit-transform: translateZ(-600px) scale(3);
             z-index: 1;
         }
 
@@ -107,6 +117,7 @@
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-1.png") no-repeat center;
             background-size: cover;
             transform: translateZ(-525px) scale(2.75);
+            -webkit-transform: translateZ(-525px) scale(2.75);
             z-index: 2;
         }
 
@@ -114,6 +125,7 @@
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-4.png") no-repeat center;
             background-size: cover;
             transform: translateZ(-400px) scale(2.33333333);
+            -webkit-transform: translateZ(-400px) scale(2.33333333);
             z-index: 3;
         }
 
@@ -121,6 +133,7 @@
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-2.png") no-repeat center;
             background-size: cover;
             transform: translateZ(-250px) scale(1.833333333);
+            -webkit-transform: translateZ(-250px) scale(1.833333333);
             z-index: 4;
         }
 
@@ -128,6 +141,7 @@
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-3.png") no-repeat center;
             background-size: cover;
             transform: translateZ(-125px) scale(1.4167);
+            -webkit-transform: translateZ(-125px) scale(1.4167);
             z-index: 5;
         }
 
@@ -135,6 +149,7 @@
             background: url("https://raw.githubusercontent.com/cally72jhb/website/main/assets/layer-5.png") no-repeat center;
             background-size: cover;
             transform: translateZ(0) scale(1);
+            -webkit-transform: translateZ(0) scale(1);
             z-index: 6;
         }
 
@@ -147,13 +162,12 @@
             top: -15%;
             background-size: cover;
             transform: translateZ(0) scale(1);
+            -webkit-transform: translateZ(0) scale(1);
             z-index: 7;
         }
 
 
-
         /* Containers */
-
 
 
         .foreground-text {
@@ -226,6 +240,7 @@
 
         /* Button */
 
+
         button {
             padding: 9px 25px;
             background-color: rgba(0, 135, 170, 1);
@@ -264,7 +279,9 @@
                     0 0 10px rgba(255, 255, 255, 0.5),
         }
 
+
         /* Animated Title Texts */
+
 
         .title-all {
             width: -moz-fit-content;
@@ -301,7 +318,9 @@
             -webkit-transition: all 0.75s ease 0s;
         }
 
+
         /* Animated Center Text */
+
 
         .center-title:before {
             content: "";
@@ -318,7 +337,9 @@
             -webkit-transition: all 0.25s ease-in-out;
         }
 
+
         /* Animated Left Text */
+
 
         .left-title:before {
             content: "";
@@ -331,12 +352,15 @@
             background-color: #000000;
 
             transform: scaleX(0);
+	        -webkit-transform: scaleX(0);
             transform-origin: top left;
             transition: transform 0.3s ease;
             -webkit-transition: transform 0.3 ease;
         }
 
+
         /* Animated Slow Left Text */
+
 
         .left-title-slow:before {
             content: "";
@@ -349,12 +373,15 @@
             background-color: #FFFFFF;
 
             transform: scaleX(0);
+	        -webkit-transform: scaleX(0);
             transform-origin: top left;
             transition: transform 0.5s ease;
             -webkit-transition: transform 0.5 ease;
         }
 
+
         /* Image */
+
 
         img {
   			border-radius: 10px;
@@ -368,8 +395,8 @@
 		    width: 576px;
 		    height: 324px;
 
-		    -webkit-transform: scale(1);
 	        transform: scale(1);
+	        -webkit-transform: scale(1);
 
 	        -webkit-transition: 0.75s ease-in-out;
 	        transition: 0.75s ease-in-out;
@@ -383,14 +410,16 @@
 		    height: 356px;
 		    border-radius: 25px;
 
-		    -webkit-transform: scale(1.015);
 	        transform: scale(1.015);
+	        -webkit-transform: scale(1.015);
 
 	        filter: blur(0.5px);
 	        -webkit-filter: blur(0.5px);
 		}
 
+
         /* Sections */
+
 
         .modules {
             top: 50%;
@@ -433,7 +462,7 @@
             height: 550px;
             max-width: 100%;
             color: rgb(215, 215, 215);
-            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 1);
 
             display: flex;
             position: relative;
@@ -444,7 +473,117 @@
             gap: 50px 25px;
         }
 
+
+        /* Header & Icons */
+
+
+        .header {
+            top: 0;
+            width: 100%;
+            position: fixed;
+
+            opacity: 0;
+            transition: all 0.5s ease 0s;
+            -webkit-transition: all 0.5s ease 0s;
+        }
+
+        .header:hover {
+            opacity: 1;
+        }
+
+        .icon-container {
+            transform: translateZ(0) scale(1);
+	        -webkit-transform: translateZ(0) scale(1);
+            z-index: 8;
+
+            width: 400px;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+
+            left: 15px;
+            bottom: 5px;
+            margin-left: 15px;
+
+            font-family: Nunito, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+            place-items: center;
+        }
+
+        .icon-wrapper {
+            display: inline-flex;
+        }
+
+        .icon-wrapper .icon {
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            background-color: #FFFFFF;
+            color: #000000;
+
+            position: relative;
+            border-radius: 50px;
+
+            padding: 15px;
+            margin: 10px;
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: all 0.5s ease 0.05s;
+            -webkit-transition: all 0.5s ease 0.05s;
+
+            transform: translateY(5px);
+	        -webkit-transform: translateY(5px);
+        }
+
+        .icon:active {
+	        transform: translateY(5px);
+	        -webkit-transform: translateY(5px);
+        }
+
+        .icon-wrapper .icon:hover {
+            font-size: 21px;
+
+            width: 200px;
+            align-items: normal;
+
+            transition: all 0.25s ease 0s;
+            -webkit-transition: all 0.25s ease 0s;
+        }
+
+        .icon-wrapper .icon:hover span {
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+
+            transition: all 0.5s ease 0.05s;
+            -webkit-transition: all 0.5s ease 0.05s;
+        }
+
+        .icon-wrapper .youtube:hover {
+            background-color: #DE463D;
+            color: #FFFFFF;
+        }
+
+        .icon-wrapper .discord:hover {
+            background-color: #7288DA;
+            color: #FFFFFF;
+        }
+
+        .icon-wrapper .github:hover {
+            background-color: #454545;
+            color: #FFFFFF;
+        }
+
+
         /* Other */
+
 
         .description {
             display: block;
@@ -468,6 +607,7 @@
         .info:hover {
             color: rgba(235, 235, 235, 1);
             transform: scale(1.25);
+	        -webkit-transform: scale(1.25px);
             letter-spacing: 1.25px;
         }
 
@@ -488,7 +628,9 @@
                     0 0 10px rgba(165, 215, 175, 0.25);
         }
 
+
         /* For small screens */
+
 
 		@media only screen and (max-width: 1100px) {
     		.description {
@@ -686,6 +828,16 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="header">
+    <div class="icon-container icon-wrapper">
+        <a class="icon youtube"><span><i class="fab fa-youtube"></i></span></a>
+
+        <a href="https://discord.gg/A3nYgbKeXR" target="_blank" class="icon discord"><span><i class="fab fa-discord"></i></span></a>
+
+        <a href="https://github.com/cally72jhb/vector-addon" target="_blank" class="icon github"><span><i class="fab fa-github"></i></span></a>
     </div>
 </div>
 

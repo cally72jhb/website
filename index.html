@@ -10,9 +10,9 @@
     <meta name="keywords" content="Minecraft, Meteor Client, Meteor Addon, Vector Addon, Vector">
     <meta name="author" content="cally72jhb">
 
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/cally72jhb/website/main/assets/icon.png" />
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/cally72jhb/website/main/assets/icon.png"/>
 
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <title>Vector Addon</title>
 
@@ -303,7 +303,7 @@
 
         .title-all:hover {
             font-size: 27px;
-            opacity: 0.85;
+            opacity: 0.95;
 
             transition: all 0.75s ease 0s;
             -webkit-transition: all 0.75s ease 0s;
@@ -312,7 +312,7 @@
         .title-all:hover:before {
             visibility: visible;
             transform: scaleX(1);
-            opacity: 0.85;
+            opacity: 0.95;
 
             transition: all 0.75s ease 0s;
             -webkit-transition: all 0.75s ease 0s;
@@ -326,10 +326,11 @@
             content: "";
             position: absolute;
             width: 100%;
-            height: 2px;
+            height: 3px;
             bottom: 0;
             left: 0;
 	        visibility: hidden;
+	        border-radius: 10px;
             background-color: #FFFFFF;
 
             transform: scaleX(0);
@@ -346,9 +347,10 @@
             position: absolute;
             display: block;
             width: 100%;
-            height: 2.5px;
+            height: 3px;
             bottom: 0;
             left: 0;
+	        border-radius: 10px;
             background-color: #000000;
 
             transform: scaleX(0);
@@ -367,9 +369,10 @@
             position: absolute;
             display: block;
             width: 100%;
-            height: 2.5px;
+            height: 3px;
             bottom: 0;
             left: 0;
+	        border-radius: 10px;
             background-color: #FFFFFF;
 
             transform: scaleX(0);
@@ -440,7 +443,24 @@
             color: rgb(100, 100, 100);
         }
 
-        .light {
+        .light-1 {
+            margin: 0;
+            height: 525px;
+            max-width: 100%;
+            color: rgb(25, 25, 25);
+            background-color: rgb(200, 200, 200);
+
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 50px 25px;
+        }
+
+        .light-2 {
+            top: 40px;
             margin: 0;
             height: 475px;
             max-width: 100%;
@@ -457,10 +477,11 @@
         }
 
         .dark {
-            top: 50px;
+            top: 125px;
             margin: 0;
-            height: 550px;
+            height: 500px;
             max-width: 100%;
+            max-height: 100%;
             color: rgb(215, 215, 215);
             background-color: rgba(0, 0, 0, 1);
 
@@ -482,22 +503,18 @@
             width: 100%;
             position: fixed;
 
-            opacity: 0;
             transition: all 0.5s ease 0s;
             -webkit-transition: all 0.5s ease 0s;
             visibility: visible;
         }
 
-        .header:hover {
-            opacity: 1;
-        }
 
         .icon-container {
             transform: translateZ(0) scale(1);
 	        -webkit-transform: translateZ(0) scale(1);
             z-index: 8;
 
-            width: 400px;
+            width: 550px;
             height: 100px;
             display: flex;
             flex-direction: row;
@@ -572,6 +589,11 @@
             color: #FFFFFF;
         }
 
+        .icon-wrapper .patreon:hover {
+            background-color: #F16651;
+            color: #FFFFFF;
+        }
+
         .icon-wrapper .discord:hover {
             background-color: #7288DA;
             color: #FFFFFF;
@@ -588,20 +610,12 @@
 
         .description {
             display: block;
-            color: rgb(100, 100, 100);
 	        cursor: pointer;
-
-            -webkit-transition: all 0.25s ease 0s;
-            transition: all 0.25s ease 0s;
-        }
-
-        .description:hover {
-            color: rgba(235, 235, 235, 1);
         }
 
         .info {
-            -webkit-transition: all 0.25s ease 0s;
-            transition: all 0.25s ease 0s;
+            -webkit-transition: transform 0.25s ease 0s, color 0.25s ease 0s;
+            transition: transform 0.25s ease 0s, color 0.25s ease 0s;
 	        cursor: pointer;
         }
 
@@ -658,8 +672,16 @@
                 font-size: 15px;
             }
 
-            .light {
-                height: 700px;
+            .light-1 {
+                height: 550px;
+            }
+
+            .light-2 {
+                height: 525px;
+            }
+
+            .dark {
+                height: 525px;
             }
 
             .image {
@@ -802,19 +824,33 @@
                     </div>
                 </div>
 
-                <div class="light">
-                    <img class="image" src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/titlescreen.png">
+                <div class="light-1">
+                    <img class="image" src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/bed-bomb.gif">
                     <div align="left">
-                        <p class="title-all left-title row-title" style="color: rgb(5, 5, 5); font-size: 25px;">Custom Title Screen:</p>
+                        <p class="title-all left-title row-title" style="color: rgb(5, 5, 5); font-size: 25px;">Auto Bed / Bed Bomb:</p>
                         <br>
-                        <p>Vector has a completely customizable Title Screen</p>
-                        <p>that is toggleable in the config.</p>
-                        <p>You can drag and drop elements around the screen</p>
-                        <p>or disable them. The action when you press an element</p>
-                        <p>can simply be edited by right-clicking them in</p>
-                        <p>the editor. The background of the Title Screen</p>
-                        <p>moves smoothly with the mouse.</p>
+                        <p>Vector has a completely customizable Bed Aura</p>
+                        <p>with a lot of settings.</p>
+                        <p>The module has different modes for chasing targets</p>
+                        <p>or damaging them in holes. The Bed Bomber can also</p>
+                        <p>0 tick place on targets to give them</p>
+                        <p>no chance to surround. The Aura has a smart placement</p>
+                        <p>and an inbuilt auto city to break a targets surround easily.</p>
                     </div>
+                </div>
+
+                <div class="light-2">
+                    <div align="left">
+                        <p class="title-all left-title row-title" style="color: rgb(5, 5, 5); font-size: 25px;">Rubberband Fly:</p>
+                        <br>
+                        <p>Vector is one of the first ever clients to add such</p>
+                        <p>a module. The module allows for fast horizontal flight</p>
+                        <p>by rubberbanding you forwards.</p>
+                        <p>It is very customizable and offers its users</p>
+                        <p>a great way to short distance travel, fly over</p>
+                        <p>small gaps or escape from death.</p>
+                    </div>
+                    <img class="image" src="https://raw.githubusercontent.com/cally72jhb/website/main/assets/rubberband-fly.gif">
                 </div>
 
                 <div class="dark">
@@ -826,7 +862,7 @@
                         <span>by its developer </span><a class="custom-link" href="https://github.com/cally72jhb" target="_blank">cally72jhb</a><span>.</span>
                     </div>
                     <div>
-                        <a href="https://github.com/cally72jhb/vector-addon/releases" target="_blank"><button>Download</button></a>
+                        <a href="https://github.com/cally72jhb/vector-addon/releases/latest" target="_blank"><button>Download</button></a>
                         <a href="https://discord.gg/A3nYgbKeXR" target="_blank"><button>Discord</button></a>
                         <a href="https://github.com/cally72jhb" target="_blank"><button>GitHub</button></a>
                     </div>
@@ -843,6 +879,8 @@
         <a href="https://discord.gg/A3nYgbKeXR" target="_blank" class="icon discord"><span><i class="fab fa-discord"></i></span></a>
 
         <a href="https://github.com/cally72jhb/vector-addon" target="_blank" class="icon github"><span><i class="fab fa-github"></i></span></a>
+
+        <a class="icon patreon"><span><i class="fab fa-patreon"></i></span></a>
     </div>
 </div>
 

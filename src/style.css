@@ -1,0 +1,463 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito Sans";
+    src: url("../assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Nunito Sans";
+    src: url("../assets/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Font: Poppins */
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Thin.ttf")             format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ThinItalic.ttf")       format("truetype"); font-weight: 100; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf")       format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Light.ttf")            format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-LightItalic.ttf")      format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Regular.ttf")          format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Italic.ttf")           format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Medium.ttf")           format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-MediumItalic.ttf")     format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf")         format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf")   format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Bold.ttf")             format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-BoldItalic.ttf")       format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraBold.ttf")        format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf")  format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
+
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Black.ttf")            format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-BlackItalic.ttf")      format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
+
+/* Font: Raleway */
+
+@font-face {
+    font-family: "Raleway";
+    src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("../assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Font: JetBrains Mono */
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("../assets/fonts/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Font: Fira Code */
+
+@font-face {
+    font-family: "Fira Code";
+    src: url("../assets/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --color_red: #E16E78;
+    --color_yellow: #E6BE7D;
+    --color_green: #96C378;
+    --color_blue: #64AFF0;
+    --color_purple: #C878CD;
+
+    --color_dark_red: #994B51;
+    --color_dark_yellow: #997E53;
+    --color_dark_green: #76995F;
+    --color_dark_blue: #406F99;
+    --color_dark_purple: #734678;
+
+    --color_black: #283237;
+    --color_white: #F4F4F4;
+    --color_off_white: #F5F0EB;
+
+    /* Font Families */
+
+    --font_family_heading: "Poppins", serif;
+    --font_family_text_paragraph: "Raleway", sans-serif;
+    --font_family_unimporant: "Nunito", sans-serif;
+
+    --font_family_monospace: "JetBrains Mono", monospace;
+
+    --font_family_ligature: "Fira Code", sans-serif;
+
+    /* Light Theme Colors */
+
+    --light_mode_color_favicon: var(--color_black);
+
+    --light_mode_color_text: #283237;
+    --light_mode_color_text_secondary: #4D5C62;
+    --light_mode_color_text_inverted: #F4F4F4;
+    --light_mode_color_text_dark: #283237;
+    --light_mode_color_background: #CCC6C0;
+    --light_mode_color_background_secondary: #D5D1CC;
+
+    --light_mode_color_primary: #808080;
+    --light_mode_color_secondary: #3C3C3C;
+    --light_mode_color_accent: var(--color_purple);
+
+    --light_mode_color_selection: var(--color_purple);
+    --light_mode_color_shadow: #00000028;
+
+    --light_mode_color_link: #508ABE;
+    --light_mode_color_link_background: var(--color_blue);
+
+    --light_mode_color_setting_on: #7bA95B;
+    --light_mode_color_setting_off: var(--color_red);
+
+    /* Dark Theme Colors */
+
+    --dark_mode_color_favicon: var(--color_off_white);
+
+    --dark_mode_color_text: #F5F0EB;
+    --dark_mode_color_text_secondary: #BABDBE;
+    --dark_mode_color_text_inverted: #3A3C3F;
+    --dark_mode_color_text_dark: #283237;
+    --dark_mode_color_background: #263238;
+    --dark_mode_color_background_secondary: #354045;
+
+    --dark_mode_color_primary: #3C3C3C;
+    --dark_mode_color_secondary: #808080;
+    --dark_mode_color_accent: var(--color_purple);
+
+    --dark_mode_color_selection: var(--color_purple);
+    --dark_mode_color_shadow: #00000028;
+
+    --dark_mode_color_link: var(--color_blue);
+    --dark_mode_color_link_background: var(--color_dark_blue);
+
+    --dark_mode_color_setting_on: var(--color_green);
+    --dark_mode_color_setting_off: var(--color_red);
+
+    /* Theme Colors */
+
+    --theme_color_text: var(--light_mode_color_text);
+    --theme_color_text_secondary: var(--light_mode_color_text_secondary);
+    --theme_color_text_inverted: var(--light_mode_color_text_inverted);
+    --theme_color_text_dark: var(--light_mode_color_text_dark);
+    --theme_color_background: var(--light_mode_color_background);
+    --theme_color_background_secondary: var(--light_mode_color_background_secondary);
+
+    --theme_color_primary: var(--light_mode_color_primary);
+    --theme_color_secondary: var(--light_mode_color_secondary);
+    --theme_color_accent: var(--light_mode_color_accent);
+
+    --theme_color_selection: var(--light_mode_color_selection);
+    --theme_color_shadow: var(--light_mode_color_shadow);
+
+    --theme_color_link: var(--light_mode_color_link);
+    --theme_color_link_background: var(--light_mode_color_link_background);
+
+    --theme_color_calculator_top: #383838;
+    --theme_color_calculator_bottom: #4C4C4C;
+    --theme_color_calculator_button: #B5B5B5;
+    --theme_color_calculator_button_shadow: var(--theme_color_shadow);
+    --theme_color_calculator_button_text: #3C3C3C;
+    --theme_color_calculator_button_preview: #CAAF45;
+    --theme_color_calculator_button_reset: #CA4547;
+    --theme_color_calculator_screen: #8EB95D;
+    --theme_color_calculator_screen_text: #1C2326;
+    --theme_color_calculator_screen_text_shadow: #59733A;
+
+    --theme_color_setting_on: var(--light_mode_color_setting_on);
+    --theme_color_setting_off: var(--light_mode_color_setting_off);
+}
+
+:root:has(#button_dark_mode:checked) {
+    --theme_color_text: var(--dark_mode_color_text);
+    --theme_color_text_secondary: var(--dark_mode_color_text_secondary);
+    --theme_color_text_inverted: var(--dark_mode_color_text_inverted);
+    --theme_color_text_dark: var(--dark_mode_color_text_dark);
+    --theme_color_background: var(--dark_mode_color_background);
+    --theme_color_background_secondary: var(--dark_mode_color_background_secondary);
+
+    --theme_color_primary: var(--dark_mode_color_primary);
+    --theme_color_secondary: var(--dark_mode_color_secondary);
+    --theme_color_accent: var(--dark_mode_color_accent);
+
+    --theme_color_selection: var(--dark_mode_color_selection);
+    --theme_color_shadow: var(--dark_mode_color_shadow);
+
+    --theme_color_link: var(--dark_mode_color_link);
+    --theme_color_link_background: var(--dark_mode_color_link_background);
+}
+
+*::selection {
+    background: var(--theme_color_selection);
+}
+
+body {
+    width: 100%;
+
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+    color: var(--theme_color_text);
+    background-color: var(--theme_color_background);
+
+    transition-property: color, background-color;
+    transition-delay: 0s;
+    transition-duration: 0.175s;
+    transition-timing-function: ease-in-out;
+}
+
+/* Layers */
+
+#error {
+    position: fixed;
+    z-index: 8;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 5px 5px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0 0.8ch;
+
+    text-wrap: auto;
+
+    color: var(--theme_color_text);
+    background-color: var(--color_red);
+
+    font-family: var(--font_family_text_paragraph);
+    font-size: 18px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#error::after {
+    content: "unexpected..";
+}
+
+#page_start {
+    width: 100vw;
+    height: 100vh;
+}
+
+#overlay {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+/**************/
+/* Shorthands */
+/**************/
+
+/* Containers */
+
+.container_center_x {
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+
+    padding: 30px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container_align_left {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.container_align_right {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+.container_overlap {
+    display: grid;
+    grid-template-areas: "overlap";
+    justify-content: right;
+}
+
+.text_container_align_left {
+    text-align: left;
+}
+
+.text_container_align_right {
+    text-align: left;
+}
+
+/* Common */
+
+.bold_heading {
+    appearance: none;
+    outline: none;
+
+    color: var(--theme_color_text);
+
+    font-family: var(--font_family_heading);
+    font-weight: 900;
+    font-size: 52px;
+}
+
+.sub_heading {
+    appearance: none;
+    outline: none;
+
+    color: var(--theme_color_text);
+
+    font-family: var(--font_family_heading);
+    font-weight: 400;
+    font-size: 38px;
+}
+
+.text {
+    appearance: none;
+    outline: none;
+
+    color: var(--theme_color_text);
+
+    font-family: var(--font_family_text_paragraph);
+    font-weight: 300;
+    font-size: 28px;
+}
+
+/* Lists */
+
+.list {
+    margin-left: calc(2ex * 1.125);
+    appearance: none;
+}
+
+.list_style_normal, .list_style_normal > li {
+    list-style-type: symbols(cyclic "-");
+}
+
+.list_style_minus, .list_style_minus > li {
+    list-style-type: symbols(cyclic "-");
+}
+
+.list_style_plus, .list_style_plus > li {
+    list-style-type: symbols(cyclic "+");
+}
+
+.list_style_arrow, .list_style_arrow > li {
+    list-style-type: symbols(cyclic ">");
+}
+
+/* Other */
+
+.bold {
+    display: inline;
+    font-weight: 600;
+}
+
+.italic {
+    display: inline;
+    font-style: italic;
+}
+
+.ligature {
+    display: inline;
+
+    font-family: var(--font_family_ligature);
+    font-weight: 100;
+    font-size: 28px;
+
+    appearance: none;
+    outline: none;
+}
+
+.disclaimer {
+    width: 100%;
+
+    text-align: center;
+
+    color: var(--theme_color_text);
+
+    font-family: var(--font_family_text_paragraph);
+    font-weight: 200;
+    font-size: 13px;
+    line-height: 1.25em;
+}
+
+.disclaimer a {
+    color: var(--theme_color_text);
+}

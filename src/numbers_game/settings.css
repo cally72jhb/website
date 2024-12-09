@@ -1,0 +1,66 @@
+.setting input {
+    appearance: none;
+}
+
+.setting span {
+    user-select: none;
+}
+
+/* On/Off Setting */
+
+.setting_on_off {
+    user-select: text;
+}
+
+.setting_on_off:has(input[type="checkbox"])::after {
+    user-select: none;
+    color: var(--light_mode_color_setting_on);
+    font-weight: 500;
+    content: "on";
+}
+
+.setting_on_off:has(input[type="checkbox"]:checked)::after {
+    user-select: none;
+    color: var(--light_mode_color_setting_off);
+    font-weight: 500;
+    content: "off";
+}
+
+/* Theme Setting */
+
+.setting_theme {
+    user-select: text;
+}
+
+.setting_theme::after {
+    user-select: none;
+    font-weight: 400;
+    content: "light-mode";
+}
+
+:root:has(#button_dark_mode:checked) label[for="button_dark_mode"].setting_theme::after {
+    user-select: none;
+    font-weight: 400;
+    content: "dark-mode";
+}
+
+/* Enum Setting */
+
+.setting_enum {
+    user-select: text;
+}
+
+.setting_enum span:last-child {
+    user-select: none;
+    color: var(--theme_color_link);
+    font-weight: 500;
+}
+
+/* File Upload Setting */
+
+.setting_file_upload:has(input[type="file"])::after {
+    user-select: none;
+    color: var(--theme_color_link);
+    font-weight: 500;
+    content: "upload-file";
+}

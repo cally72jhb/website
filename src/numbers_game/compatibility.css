@@ -1,0 +1,41 @@
+@media (min-aspect-ratio: 3/4) {
+    #calculator {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media (max-aspect-ratio: 3/4) {
+    #calculator {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 515px), (max-height: 700px) {
+    #current_score::before {
+        content: "";
+    }
+
+    #high_score::before {
+        content: "";
+    }
+}
+
+@media only screen and (max-width: 525px), (max-height: 700px) {
+    .button_dark_mode {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 425px), (max-height: 525px) {
+    body {
+        overflow: hidden;
+    }
+
+    #error {
+        display: flex;
+    } #error::after {
+        content: "screen is too small";
+    }
+}

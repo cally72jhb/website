@@ -399,6 +399,10 @@ body {
     font-size: 28px;
 }
 
+.text a {
+    color: var(--theme_color_text);
+}
+
 /* Lists */
 
 .list {

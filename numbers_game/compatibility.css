@@ -28,6 +28,22 @@
     }
 }
 
+@media only screen and (min-width: 3000px), (min-height: 3000px) {
+    :root {
+        --font_size_multiplier: 2.0;
+    }
+
+    #calculator {
+        --calculator_font_size_multiplier: 2.0;
+        --calculator_icon_size_multiplier: 2.0;
+    }
+
+    #calculator_screen {
+        --calculator_screen_shadow: 4px 4px var(--theme_color_calculator_screen_text_shadow);
+        --calculator_screen_shadow_light: 2px 2px var(--theme_color_calculator_screen_text_shadow);
+    }
+}
+
 @media only screen and (max-width: 425px), (max-height: 525px) {
     :root {
         --font_size_multiplier: 0.7;
@@ -36,6 +52,11 @@
     #calculator {
         --calculator_font_size_multiplier: 0.5;
         --calculator_icon_size_multiplier: 0.5;
+    }
+
+    #calculator_screen {
+        --calculator_screen_shadow: 2px 2px var(--theme_color_calculator_screen_text_shadow);
+        --calculator_screen_shadow_light: 1px 1px var(--theme_color_calculator_screen_text_shadow);
     }
 }
 
@@ -47,6 +68,11 @@
     #calculator {
         --calculator_font_size_multiplier: 0.4;
         --calculator_icon_size_multiplier: 0.4;
+    }
+
+    #calculator_screen {
+        --calculator_screen_shadow: 1px 1px var(--theme_color_calculator_screen_text_shadow);
+        --calculator_screen_shadow_light: 1px 1px var(--theme_color_calculator_screen_text_shadow);
     }
 }
 

@@ -487,8 +487,6 @@ class GameState {
         const button_element = document.getElementById("button" + button);
         const color_button = getComputedStyle(button_element).backgroundColor;
 
-        feedback_vibrate(100);
-
         button_element.animate(
             [
                 { background: this.color_green },
@@ -503,6 +501,8 @@ class GameState {
             this.animation_played = true;
             feedback_vibrate(100);
             play_confetti_animation();
+        } else {
+            feedback_vibrate(10);
         }
     }
 
@@ -510,7 +510,7 @@ class GameState {
         const button_element = document.getElementById("button" + button);
         const color_button = getComputedStyle(button_element).backgroundColor;
 
-        feedback_vibrate(300);
+        feedback_vibrate(25);
 
         if (storage.get("setting_screen_shake")) {
             this.element_screen.animate(
@@ -680,7 +680,7 @@ function button_press_reset() {
         return;
     }
 
-    feedback_vibrate(250);
+    feedback_vibrate(75);
 
     game_state.start_index = 0;
     game_state.current_index = 0;

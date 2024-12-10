@@ -9,10 +9,15 @@
 
     overflow: hidden;
 
+    touch-action: pan-y pinch-zoom;
+
     border-radius: 25px;
 
     box-shadow: 15px 15px var(--light_mode_color_shadow);
     background-color: var(--theme_color_calculator_top);
+
+    --calculator_font_size_multiplier: 1.0;
+    --calculator_icon_size_multiplier: 1.0;
 }
 
 #calculator_buttons {
@@ -68,7 +73,7 @@
 
     background-color: var(--theme_color_calculator_button);
 
-    font-size: 48px;
+    font-size: calc(48px * var(--calculator_font_size_multiplier));
     font-family: var(--font_family_monospace);
     font-optical-sizing: auto;
     font-weight: 400;
@@ -88,7 +93,7 @@
 }
 
 .button:focus-visible {
-    outline: var(--theme_color_accent) solid 8px;
+    outline: var(--theme_color_accent) solid calc(8px * var(--calculator_font_size_multiplier));
 }
 
 @keyframes button_press {
@@ -109,7 +114,7 @@
     align-items: center;
     justify-content: center;
 } .button_icon svg {
-      width: 52px;
+      width: calc(52px * var(--calculator_icon_size_multiplier));
   }
 
 #button0 { grid-area: b0; }
@@ -141,7 +146,7 @@
 
     background-color: var(--theme_color_calculator_screen);
 
-    font-size: 54px;
+    font-size: calc(54px * var(--calculator_font_size_multiplier));
     font-family: var(--font_family_monospace);
     font-optical-sizing: auto;
     font-weight: 400;
@@ -282,15 +287,7 @@
 
 .hearth_container svg {
     aspect-ratio: 1/1;
-    width: 24px;
-
-    fill: var(--theme_color_calculator_screen_text);
-    filter: drop-shadow(var(--calculator_screen_shadow));
-}
-
-.hearth_container svg:hover {
-    aspect-ratio: 1/1;
-    width: 24px;
+    width: calc(24px * var(--calculator_icon_size_multiplier));
 
     fill: var(--theme_color_calculator_screen_text);
     filter: drop-shadow(var(--calculator_screen_shadow));
@@ -402,7 +399,7 @@
     flex-direction: row;
     justify-content: right;
 
-    font-size: 19px;
+    font-size: calc(19px * var(--calculator_font_size_multiplier));
     font-weight: 800;
 
     color: var(--theme_color_calculator_screen_text);

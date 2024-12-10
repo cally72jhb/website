@@ -1,67 +1,7 @@
-function str(value) {
-    return String(value);
-}
-
-function num(value) {
-    return Number(value);
-}
-
-function bool(value) {
-    return ["true", "1"].includes(value);
-}
-
-function feedback_vibrate(milliseconds) {
-    try {
-        navigator.vibrate(milliseconds);
-    } catch (exception) { }
-}
-
-async function get_file_content(file_path) {
-    let result = "";
-    await fetch(file_path).then((response) => response.text()).then((text) => {
-        result = text;
-    }).catch((error) => {
-        console.error("error fetching file at \"" + file_path + "\": " + error);
-        result = "";
-
-        const request = new XMLHttpRequest();
-        request.open("GET", file_path, true);
-        request.onreadystatechange = function() {
-            if (request.readyState === 4) {
-                if (request.status === 200) {
-                    result = request.responseText;
-                } else {
-                    console.error("error fetching file at \"" + file_path + "\"");
-                }
-            }
-        };
-
-        request.send();
-    });
-
-    return result;
-}
+import { str, num, bool, get_css_variable, element_update, element_animations_finished, add_click_event, add_change_event, feedback_vibrate, get_file_content } from "../src/common.js";
 
 async function get_resource(resource_path) {
-    return await get_file_content("../../resources/" + resource_path);
-}
-
-function element_update(element) {
-    const prev_display = element.style.display;
-    element.style.display = "none";
-    element.offsetHeight; // this forces reflow
-    element.style.display = prev_display;
-}
-
-function element_animations_finished(element) {
-    const animations = element.getAnimations();
-    for (const animation of animations) {
-        if (animation.playState !== "finished") {
-            return false;
-        }
-    }
-
-    return true;
+    return await get_file_content("../src/resources/" + resource_path);
 }
 
 ////////////////////////////////
@@ -76,10 +16,6 @@ const sequence_const_e = "2.7182818284590452353602874713526624977572470936999595
 ////////////////////////////////
 
 let content_loaded = false;
-
-let variables = null; // variables defined in :root
-let dark_mode_preferred = false;
-let first_time_visited = false;
 
 let game_state = null; // keeps track of the current game state
 
@@ -246,20 +182,24 @@ class Storage {
 
     // Register
 
-    register_bool(item_name, bound_element, bound_type) {
-        this.storage.set(item_name, new StorageElement("bool", bound_element, bound_type, false));
+    register_bool(item_name, bound_element, bound_type, default_value = false) {
+        this.storage.set(item_name, new StorageElement("bool", bound_element, bound_type, default_value));
     }
 
-    register_number(item_name, bound_element, bound_type) {
-        this.storage.set(item_name, new StorageElement("number", bound_element, bound_type, 0));
+    register_number(item_name, bound_element, bound_type, default_value = 0) {
+        this.storage.set(item_name, new StorageElement("number", bound_element, bound_type, default_value));
+    }
+
+    register_string(item_name, bound_element, bound_type, default_value = "") {
+        this.storage.set(item_name, new StorageElement("string", bound_element, bound_type, default_value));
     }
 
     // Store & Load
 
     update() {
         for (const [item_name, storage_item] of this.storage) {
-            localStorage.setItem(item_name, storage_item.pack());
             storage_item.load();
+            localStorage.setItem(item_name, storage_item.pack());
         }
     }
 
@@ -295,7 +235,6 @@ class Storage {
 const storage = new Storage();
 
 let setting_sequences = null;
-let setting_selected_sequence = null;
 let setting_uploaded_files = null;
 
 function register_storage() {
@@ -307,7 +246,14 @@ function register_storage() {
     const element_current_score = document.getElementById("current_score");
     const element_high_score    = document.getElementById("high_score");
 
-    // register settings
+    const element_selected_sequence = document.getElementById("selected_sequence");
+
+    // settings
+
+    setting_sequences = [ "Euler's Number", "PI", "Square Root of 2" ];
+    setting_uploaded_files = new Map();
+
+    // register storage items
 
     storage.register_bool("setting_screen_shake", element_setting_screen_shake, "checkbox");
     storage.register_bool("setting_hearths", element_setting_hearths, "checkbox");
@@ -317,15 +263,11 @@ function register_storage() {
     storage.register_number("current_score", element_current_score, "content");
     storage.register_number("high_score", element_high_score, "content");
 
-    setting_sequences = [ "Euler's Number", "PI", "Square Root of 2" ];
-    setting_selected_sequence = setting_sequences[0];
-    setting_uploaded_files = new Map();
+    storage.register_string("selected_sequence", element_selected_sequence, "content", setting_sequences[0]);
 }
 
 function storage_store() {
-    storage.store();
-
-    // TODO: store uploaded files & selected sequence
+    storage.store(); // TODO: store uploaded files & selected sequence
 }
 
 function storage_load() {
@@ -335,41 +277,6 @@ function storage_load() {
 ////////////////////////////////
 // Other Functions            //
 ////////////////////////////////
-
-function set_favicon() {
-    const favicon_data = document.getElementById("favicon_data");
-
-    // dark/light mode
-
-    let light_mode_favicon_color = variables.getPropertyValue("--light_mode_color_favicon").trim();
-    let dark_mode_favicon_color = variables.getPropertyValue("--dark_mode_color_favicon").trim();
-    let favicon_color = dark_mode_preferred ? dark_mode_favicon_color : light_mode_favicon_color;
-
-    // set a favicon
-
-    if (favicon_data != null) {
-        const svg_string = favicon_data.innerHTML;
-
-        // parse the svg
-
-        let dom_parser = new DOMParser();
-
-        let svg_document = dom_parser.parseFromString(svg_string, "image/svg+xml");
-        let paths = svg_document.querySelectorAll("path");
-
-        for (let path of paths) {
-            path.setAttribute("fill", favicon_color);
-        }
-
-        // serialize the svg document back to a string & update favicon
-
-        const favicon = document.head.querySelector("link[rel=\"icon\"]");
-        if (favicon != null) {
-            let result = (new XMLSerializer()).serializeToString(svg_document).replace('\"', "%22").replace('#', "%23");
-            favicon.href = "data:image/svg+xml," + result;
-        }
-    }
-}
 
 function play_confetti_animation() {
     if (!storage.get("setting_confetti")) {
@@ -420,8 +327,8 @@ class GameState {
         this.element_high_score = document.getElementById("high_score");
         this.element_current_score = document.getElementById("current_score");
 
-        this.color_red = variables.getPropertyValue("--color_red").trim();
-        this.color_green = variables.getPropertyValue("--color_green").trim();
+        this.color_red = get_css_variable("--color_red");
+        this.color_green = get_css_variable("--color_green");
 
         // reset & update the screen to the stored score
 
@@ -562,6 +469,11 @@ class GameState {
     }
 
     reset_animation() {
+        if (this.get_score() <= 4) {
+            this.reset();
+            return;
+        }
+
         this.reset_hearths();
         this.reset_screen_with_animation();
 
@@ -644,24 +556,46 @@ function settings_update() {
         return;
     }
 
-    const element_setting_screen_shake = document.getElementById("setting_screen_shake");
-    const element_setting_hearths      = document.getElementById("setting_hearths");
-    const element_setting_vibrations   = document.getElementById("setting_vibrations");
-    const element_setting_confetti     = document.getElementById("setting_confetti");
+    // prevent the user from disabling lives during games
 
-    storage.set("setting_screen_shake", element_setting_screen_shake.checked);
-
+    const element_setting_hearths = document.getElementById("setting_hearths");
     if (element_setting_hearths.checked || element_setting_hearths.checked === false && (game_state.current_index - 1) === game_state.start_index) {
         game_state.reset_hearths();
-        storage.set("setting_hearths", element_setting_hearths.checked);
     } else {
         element_setting_hearths.checked = !element_setting_hearths.checked;
     }
 
-    storage.set("setting_vibrations", element_setting_vibrations.checked);
-    storage.set("setting_confetti", element_setting_confetti.checked);
+    // load the current settings from each bound element and store them
 
+    storage.update();
     storage_store();
+}
+
+async function get_sequence(sequence_name) {
+    switch (sequence_name) {
+        case setting_sequences[0]: { return await get_resource("e.txt"); }
+        case setting_sequences[1]: { return await get_resource("pi.txt"); }
+        case setting_sequences[2]: { return await get_resource("sqrt_2.txt"); }
+
+        default: {
+            if (setting_uploaded_files.has(sequence_name)) {
+                return setting_uploaded_files.get(sequence_name);
+            }
+
+            break;
+        }
+    }
+
+    return undefined;
+}
+
+async function select_sequence(sequence_name) { // requires a manual reset of the screen afterwards
+    const element_selected_sequence = document.getElementById("selected_sequence");
+
+    element_selected_sequence.innerText = sequence_name;
+    storage.set("selected_sequence", sequence_name);
+
+    game_state.set_number_sequence(await get_sequence(sequence_name));
 }
 
 async function settings_choose_sequence() {
@@ -675,8 +609,7 @@ async function settings_choose_sequence() {
 
     const index = setting_sequences.indexOf(element_selected_sequence.innerText.trim());
     if (index === -1) { // reached the last element: start over again
-        element_selected_sequence.innerText = setting_sequences[0];
-        setting_selected_sequence = setting_sequences[0];
+        await select_sequence(setting_sequences[0]);
     } else {
         let sequence_name;
         if (index === setting_sequences.length - 1) {
@@ -685,36 +618,12 @@ async function settings_choose_sequence() {
             sequence_name = setting_sequences[index + 1];
         }
 
-        element_selected_sequence.innerText = sequence_name;
-        setting_selected_sequence = sequence_name;
-
-        switch (sequence_name) {
-            case setting_sequences[0]: {
-                game_state.set_number_sequence(await get_resource("e.txt"));
-                break;
-            }
-
-            case setting_sequences[1]: {
-                game_state.set_number_sequence(await get_resource("pi.txt"));
-                break;
-            }
-
-            case setting_sequences[2]: {
-                game_state.set_number_sequence(await get_resource("sqrt_2.txt"));
-                break;
-            }
-
-            default: {
-                if (setting_uploaded_files.has(sequence_name)) {
-                    game_state.set_number_sequence(setting_uploaded_files.get(sequence_name));
-                }
-
-                break;
-            }
-        }
-
-        game_state.reset_animation();
+        await select_sequence(sequence_name);
     }
+
+    game_state.reset_animation();
+
+    storage.store();
 }
 
 function settings_choose_file(event) {
@@ -757,27 +666,40 @@ function button_press(button) {
         return;
     }
 
-    switch (button) {
-        case (-1): { // reset button
-            feedback_vibrate(250);
+    const character = str(button);
+    if (game_state.number_sequence[game_state.current_index] === character) {
+        game_state.consume_digit();
+        game_state.input_correct(button);
+    } else {
+        game_state.input_wrong(button);
+    }
+}
 
-            game_state.start_index = 0;
-            game_state.current_index = 0;
-            game_state.reset();
-            break;
-        }
+function button_press_reset() {
+    if (!content_loaded) {
+        return;
+    }
 
-        case (0): case (1): case (2): case (3): case (4): case (5): case (6): case (7): case (8): case (9): {
-            const character = str(button);
-            if (game_state.number_sequence[game_state.current_index] === character) {
-                game_state.consume_digit();
-                game_state.input_correct(button);
-            } else {
-                game_state.input_wrong(button);
-            }
+    feedback_vibrate(250);
 
-            break;
-        }
+    game_state.start_index = 0;
+    game_state.current_index = 0;
+    game_state.reset();
+}
+
+function key_press(event) {
+    if (!content_loaded) {
+        return;
+    }
+
+    const key = event.key;
+
+    if (key >= '0' && key <= '9') {
+        button_press(key - '0');
+        event.preventDefault();
+    } else if (key === 'v') {
+        const button = document.getElementById("button_visibility");
+        button.checked = !button.checked;
     }
 }
 
@@ -788,35 +710,37 @@ function button_press(button) {
 document.addEventListener("DOMContentLoaded", async function() {
     content_loaded = true;
 
-    variables = getComputedStyle(document.querySelector(":root"));
-
-    first_time_visited = !document.cookie.includes("visited");
-    document.cookie = "visited=true; SameSite=Strict; Secure; path=/";
-
     // register storage
 
     register_storage();
     storage_load();
 
-    // update favicon
+    // add event listeners
 
-    dark_mode_preferred = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (dark_mode_preferred && first_time_visited) { // update dark mode the first time the website was loaded
-        const element_dark_mode_button = document.getElementById("button_dark_mode");
-        element_dark_mode_button.checked = true;
-        element_update(element_dark_mode_button);
+    for (let i = 0; i < 10; i++) {
+        add_click_event("button" + i, function() {
+            button_press(i);
+        });
     }
 
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", event => {
-        dark_mode_preferred = event.matches;
-        set_favicon();
-    });
+    add_click_event("button_reset", function() { button_press_reset(); });
+    document.addEventListener("keydown", key_press);
 
-    set_favicon();
+    add_click_event("setting_sequence", function() { settings_choose_sequence(); });
+    add_change_event("file_upload", function(event) { settings_choose_file(event); });
+
+    add_click_event("setting_screen_shake", function() { settings_update(); });
+    add_click_event("setting_hearths", function() { settings_update(); });
+    add_click_event("setting_vibrations", function() { settings_update(); });
+    add_click_event("setting_confetti", function() { settings_update(); });
 
     // initialize the game state
 
-    game_state = new GameState(storage.get("current_score"), storage.get("high_score"), await get_resource("e.txt"));
+    game_state = new GameState(
+        storage.get("current_score"),
+        storage.get("high_score"),
+        await get_sequence(storage.get("selected_sequence"))
+    );
 
     settings_update();
 });

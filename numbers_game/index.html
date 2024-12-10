@@ -20,7 +20,7 @@
 
     <!-- Stylesheets -->
 
-    <link rel="stylesheet" href="../style.css"/>
+    <link rel="stylesheet" href="../src/style.css"/>
     <link rel="stylesheet" href="settings.css"/>
 
     <link rel="stylesheet" href="calculator.css"/>
@@ -30,7 +30,8 @@
 
     <!-- Scripts -->
 
-    <script type="text/javascript" src="main.js"></script>
+    <script type="module" src="../src/common.js"></script>
+    <script type="module" src="../src/favicon.js"></script>
 
     <!-- Other -->
 
@@ -38,6 +39,12 @@
 </head>
 
 <body translate="no">
+
+    <!-- SCRIPTS -->
+
+    <script type="module" src="main.js"></script>
+
+    <!-- SCRIPTS -->
 
     <!-- FAVICON & THEME BUTTON -->
 
@@ -100,19 +107,19 @@
                     </div>
                 </div>
 
-                <button id="button7" class="button" onclick="button_press(7);">7</button>
-                <button id="button8" class="button" onclick="button_press(8);">8</button>
-                <button id="button9" class="button" onclick="button_press(9);">9</button>
+                <button id="button7" class="button">7</button>
+                <button id="button8" class="button">8</button>
+                <button id="button9" class="button">9</button>
 
-                <button id="button4" class="button" onclick="button_press(4);">4</button>
-                <button id="button5" class="button" onclick="button_press(5);">5</button>
-                <button id="button6" class="button" onclick="button_press(6);">6</button>
+                <button id="button4" class="button">4</button>
+                <button id="button5" class="button">5</button>
+                <button id="button6" class="button">6</button>
 
-                <button id="button1" class="button" onclick="button_press(1);">1</button>
-                <button id="button2" class="button" onclick="button_press(2);">2</button>
-                <button id="button3" class="button" onclick="button_press(3);">3</button>
+                <button id="button1" class="button">1</button>
+                <button id="button2" class="button">2</button>
+                <button id="button3" class="button">3</button>
 
-                <button id="button0" class="button" onclick="button_press(0);">0</button>
+                <button id="button0" class="button">0</button>
 
                 <label for="button_visibility" class="button button_icon">
                     <input id="button_visibility" type="checkbox">
@@ -120,7 +127,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
                 </label>
 
-                <button id="button_reset" class="button button_icon" onclick="button_press(-1);">
+                <button id="button_reset" class="button button_icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M576 128c0-35.3-28.7-64-64-64L205.3 64c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7L512 448c35.3 0 64-28.7 64-64l0-256zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
                 </button>
             </div>
@@ -139,7 +146,7 @@
             <br/>
 
             <label for="setting_sequence" class="setting setting_enum">
-                <input id="setting_sequence" type="button" hidden onclick="settings_choose_sequence();">
+                <input id="setting_sequence" type="button" hidden>
                 <span>sequence: </span>
                 <span id="selected_sequence">
                         Euler's Number
@@ -147,29 +154,29 @@
             </label><br/>
 
             <label for="file_upload" class="setting setting_file_upload">
-                <input id="file_upload" type="file" hidden onchange="settings_choose_file(event);">
+                <input id="file_upload" type="file" hidden>
                 <span>upload your own sequence here: </span>
             </label><br/>
 
             <br/>
 
             <label for="setting_screen_shake" class="setting setting_on_off">
-                <input id="setting_screen_shake" type="checkbox" checked="checked" onclick="settings_update();">
+                <input id="setting_screen_shake" type="checkbox" checked="checked">
                 <span>screen-shake: </span>
             </label><br/>
 
             <label for="setting_hearths" class="setting setting_on_off">
-                <input id="setting_hearths" type="checkbox" checked="checked" onclick="settings_update();">
+                <input id="setting_hearths" type="checkbox" checked="checked">
                 <span>enable-lives: </span>
             </label><br/>
 
             <label for="setting_vibrations" class="setting setting_on_off">
-                <input id="setting_vibrations" type="checkbox" checked="checked" onclick="settings_update();">
+                <input id="setting_vibrations" type="checkbox" checked="checked">
                 <span>enable-vibrations: </span>
             </label><br/>
 
             <label for="setting_confetti" class="setting setting_on_off">
-                <input id="setting_confetti" type="checkbox" checked="checked" onclick="settings_update();">
+                <input id="setting_confetti" type="checkbox" checked="checked">
                 <span>enable-confetti: </span>
             </label><br/>
 

@@ -1,3 +1,3 @@
 # Website
 
-see: https://cally72jhb.github.io/
+see: https://cally72jhb.github.io/website/

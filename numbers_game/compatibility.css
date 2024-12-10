@@ -29,6 +29,28 @@
 }
 
 @media only screen and (max-width: 425px), (max-height: 525px) {
+    :root {
+        --font_size_multiplier: 0.7;
+    }
+
+    #calculator {
+        --calculator_font_size_multiplier: 0.5;
+        --calculator_icon_size_multiplier: 0.5;
+    }
+}
+
+@media only screen and (max-width: 325px), (max-height: 415px) {
+    :root {
+        --font_size_multiplier: 0.55;
+    }
+
+    #calculator {
+        --calculator_font_size_multiplier: 0.4;
+        --calculator_icon_size_multiplier: 0.4;
+    }
+}
+
+@media only screen and (max-width: 300px), (max-height: 400px) {
     body {
         overflow: hidden;
     }

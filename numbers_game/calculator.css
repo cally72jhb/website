@@ -87,11 +87,9 @@
     animation-timing-function: ease-out;
 }
 
-/* focusing
-.button:focus, .button:focus-within, .button:focus-visible {
+.button:focus-visible {
     outline: var(--theme_color_accent) solid 8px;
 }
-*/
 
 @keyframes button_press {
     from {
@@ -458,7 +456,7 @@
     opacity: 1.0;
 }
 
-#reset {
+#button_reset {
     grid-area: reset;
     background-color: var(--theme_color_calculator_button_reset);
 }

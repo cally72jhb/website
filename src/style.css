@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Nunito";
-    src: url("../assets/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: "Nunito";
-    src: url("../assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/Nunito/Nunito-Italic-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "Nunito Sans";
-    src: url("../assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+    src: url("assets/fonts/Nunito_Sans/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
     font-family: "Nunito Sans";
-    src: url("../assets/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
+    src: url("assets/fonts/Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
@@ -32,38 +32,38 @@
 
 /* Font: Poppins */
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Thin.ttf")             format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ThinItalic.ttf")       format("truetype"); font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Thin.ttf")             format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-ThinItalic.ttf")       format("truetype"); font-weight: 100; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraLight.ttf")       format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-ExtraLight.ttf")       format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Light.ttf")            format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-LightItalic.ttf")      format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Light.ttf")            format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-LightItalic.ttf")      format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Regular.ttf")          format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Italic.ttf")           format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Regular.ttf")          format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Italic.ttf")           format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Medium.ttf")           format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-MediumItalic.ttf")     format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Medium.ttf")           format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-MediumItalic.ttf")     format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-SemiBold.ttf")         format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf")   format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-SemiBold.ttf")         format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf")   format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Bold.ttf")             format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-BoldItalic.ttf")       format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Bold.ttf")             format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-BoldItalic.ttf")       format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraBold.ttf")        format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf")  format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-ExtraBold.ttf")        format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf")  format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
 
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-Black.ttf")            format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Poppins"; src: url("../assets/fonts/Poppins/Poppins-BlackItalic.ttf")      format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-Black.ttf")            format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Poppins"; src: url("assets/fonts/Poppins/Poppins-BlackItalic.ttf")      format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
 
 /* Font: Raleway */
 
 @font-face {
     font-family: "Raleway";
-    src: url("../assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -71,7 +71,7 @@
 
 @font-face {
     font-family: "Raleway";
-    src: url("../assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
@@ -81,7 +81,7 @@
 
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("../assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -89,7 +89,7 @@
 
 @font-face {
     font-family: "JetBrains Mono";
-    src: url("../assets/fonts/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/JetBrains_Mono/JetBrainsMono-Italic-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: italic;
     font-display: swap;
@@ -99,7 +99,7 @@
 
 @font-face {
     font-family: "Fira Code";
-    src: url("../assets/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf") format("truetype");
+    src: url("assets/fonts/Fira_Code/FiraCode-VariableFont_wght.ttf") format("truetype");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -133,6 +133,8 @@
     --color_off_white: #F5F0EB;
 
     /* Font Families */
+
+    --font_size_multiplier: 1.0;
 
     --font_family_heading: "Poppins", serif;
     --font_family_text_paragraph: "Raleway", sans-serif;
@@ -247,11 +249,16 @@
     background: var(--theme_color_selection);
 }
 
+*:focus-visible {
+    outline: var(--theme_color_accent) solid 2px;
+}
+
 body {
     width: 100%;
 
     overflow-x: hidden;
     scroll-behavior: smooth;
+    touch-action: pan-y pinch-zoom;
 
     color: var(--theme_color_text);
     background-color: var(--theme_color_background);
@@ -284,7 +291,7 @@ body {
     background-color: var(--color_red);
 
     font-family: var(--font_family_text_paragraph);
-    font-size: 18px;
+    font-size: calc(18px * var(--font_size_multiplier));
     font-weight: 500;
     font-style: normal;
 }
@@ -374,7 +381,7 @@ body {
 
     font-family: var(--font_family_heading);
     font-weight: 900;
-    font-size: 52px;
+    font-size: calc(52px * var(--font_size_multiplier));
 }
 
 .sub_heading {
@@ -385,7 +392,7 @@ body {
 
     font-family: var(--font_family_heading);
     font-weight: 400;
-    font-size: 38px;
+    font-size: calc(38px * var(--font_size_multiplier));
 }
 
 .text {
@@ -396,11 +403,15 @@ body {
 
     font-family: var(--font_family_text_paragraph);
     font-weight: 300;
-    font-size: 28px;
+    font-size: calc(28px * var(--font_size_multiplier));
 }
 
 .text a {
     color: var(--theme_color_text);
+}
+
+.text a:focus-visible {
+    outline: var(--theme_color_accent) solid 2px;
 }
 
 /* Lists */
@@ -443,7 +454,7 @@ body {
 
     font-family: var(--font_family_ligature);
     font-weight: 100;
-    font-size: 28px;
+    font-size: calc(28px * var(--font_size_multiplier));
 
     appearance: none;
     outline: none;
@@ -458,7 +469,7 @@ body {
 
     font-family: var(--font_family_text_paragraph);
     font-weight: 200;
-    font-size: 13px;
+    font-size: calc(13px * var(--font_size_multiplier));
     line-height: 1.25em;
 }
 

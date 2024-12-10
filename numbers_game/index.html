@@ -39,11 +39,13 @@
 
 <body translate="no">
 
-    <!-- FAVICON -->
+    <!-- FAVICON & THEME BUTTON -->
 
     <div id="favicon_data" style="position: fixed; display: none;">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
     </div>
+
+    <input id="button_dark_mode" type="checkbox" hidden> <!-- only accessed through labels to prevent jump to content when interacting -->
 
     <!-- ERROR SECTION -->
 
@@ -88,7 +90,6 @@
                             </div>
 
                             <div class="container_align_right">
-                                <input id="button_dark_mode" type="checkbox" hidden> <!-- only accessed through labels to prevent jump to content when interacting -->
                                 <label for="button_dark_mode" class="button_dark_mode"></label>
                             </div>
                         </div>
@@ -119,7 +120,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
                 </label>
 
-                <button id="reset" class="button button_icon" onclick="button_press(-1);">
+                <button id="button_reset" class="button button_icon" onclick="button_press(-1);">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M576 128c0-35.3-28.7-64-64-64L205.3 64c-17 0-33.3 6.7-45.3 18.7L9.4 233.4c-6 6-9.4 14.1-9.4 22.6s3.4 16.6 9.4 22.6L160 429.3c12 12 28.3 18.7 45.3 18.7L512 448c35.3 0 64-28.7 64-64l0-256zM271 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
                 </button>
             </div>
@@ -153,22 +154,22 @@
             <br/>
 
             <label for="setting_screen_shake" class="setting setting_on_off">
-                <input id="setting_screen_shake" type="checkbox" hidden onclick="settings_update();">
+                <input id="setting_screen_shake" type="checkbox" checked="checked" onclick="settings_update();">
                 <span>screen-shake: </span>
             </label><br/>
 
             <label for="setting_hearths" class="setting setting_on_off">
-                <input id="setting_hearths" type="checkbox" hidden onclick="settings_update();">
+                <input id="setting_hearths" type="checkbox" checked="checked" onclick="settings_update();">
                 <span>enable-lives: </span>
             </label><br/>
 
             <label for="setting_vibrations" class="setting setting_on_off">
-                <input id="setting_vibrations" type="checkbox" hidden onclick="settings_update();">
+                <input id="setting_vibrations" type="checkbox" checked="checked" onclick="settings_update();">
                 <span>enable-vibrations: </span>
             </label><br/>
 
             <label for="setting_confetti" class="setting setting_on_off">
-                <input id="setting_confetti" type="checkbox" hidden onclick="settings_update();">
+                <input id="setting_confetti" type="checkbox" checked="checked" onclick="settings_update();">
                 <span>enable-confetti: </span>
             </label><br/>
 

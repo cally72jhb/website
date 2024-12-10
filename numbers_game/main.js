@@ -1,5 +1,13 @@
 function str(value) {
-    return (("") + (value));
+    return String(value);
+}
+
+function num(value) {
+    return Number(value);
+}
+
+function bool(value) {
+    return ["true", "1"].includes(value);
 }
 
 function feedback_vibrate(milliseconds) {
@@ -79,9 +87,10 @@ let game_state = null; // keeps track of the current game state
 // Settings                   //
 ////////////////////////////////
 
-class SettingValue {
-    constructor(type, bound_element, value) {
-        this.type = type; // the type of the value (bool, number, object, map)
+class StorageElement {
+    constructor(type, bound_element, bound_element_type, value) {
+        this.type = type; // the type of the value (bool, number)
+        this.bound_element_type = bound_element_type; // type of the bound element (checkbox, value, content)
         this.bound_element = bound_element; // either a html element (for booleans) or a function
         this.value = value; // the value of the setting
     }
@@ -94,32 +103,109 @@ class SettingValue {
         return this.value;
     }
 
-    load() {
-        switch (this.type) {
-            case ("bool"): case ("number"): {
+    update() { // updates @this.bound_element to @this.value based on @this.bound_element_type
+        switch (this.bound_element_type) {
+            case ("checkbox"): {
+                this.bound_element.checked = this.value;
+                break;
+            }
+
+            case ("value"): {
                 this.bound_element.innerText = str(this.value);
                 break;
             }
 
+            case ("content"): {
+                this.bound_element.innerText = this.value;
+                break;
+            }
+
             default: {
+                console.error("storage: error while updating value of bound element; unknown storage type \"" + this.type + "\"");
                 break;
             }
         }
     }
 
-    pack() {
+    load() { // loads @this.value from @this.bound_element based on @this.bound_element_type
+        switch (this.bound_element_type) {
+            case ("checkbox"): {
+                this.value = this.bound_element.checked;
+                break;
+            }
+
+            case ("value"): {
+                switch (this.type) {
+                    case ("number"): {
+                        this.value = Number(this.bound_element.value);
+                        break;
+                    }
+
+                    case ("string"): {
+                        this.value = str(this.bound_element.value);
+                        break;
+                    }
+
+                    default: {
+                        console.error("storage: error while updating storage value from bound element; unknown storage type \"" + this.type + "\"");
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+            case ("content"): {
+                switch (this.type) {
+                    case ("bool"): {
+                        this.value = bool(this.bound_element.innerText);
+                        break;
+                    }
+
+                    case ("number"): {
+                        this.value = num(this.bound_element.innerText);
+                        break;
+                    }
+
+                    case ("string"): {
+                        this.value = str(this.bound_element.innerText);
+                        break;
+                    }
+
+                    default: {
+                        console.error("storage: error while updating storage value from bound element; unknown storage type \"" + this.type + "\"");
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+            default: {
+                console.error("storage: error while reading value from element; unknown bound element type \"" + this.bound_element_type + "\"");
+                break;
+            }
+        }
+    }
+
+    pack() { // converts @this.value to a string
         switch (this.type) {
             case ("bool"): case ("number"): {
                 return str(this.value);
             }
 
+            case ("string"): {
+                return this.value;
+            }
+
             default: {
+                console.error("storage: error while packing value; unknown storage type \"" + this.type + "\"");
                 return "null";
             }
         }
     }
 
-    unpack(value) {
+    unpack(value) { // converts @value to the desired type indicated by @this.type
         switch (this.type) {
             case ("bool"): {
                 if (value === undefined || value === null) {
@@ -133,92 +219,117 @@ class SettingValue {
                 if (value === undefined || value === null) {
                     return 0;
                 } else {
-                    return Number(value);
+                    return num(value);
+                }
+            }
+
+            case ("string"): {
+                if (value === undefined || value === null) {
+                    return "";
+                } else {
+                    return value;
                 }
             }
 
             default: {
+                console.error("storage: error while unpacking value; unknown storage type \"" + this.type + "\"");
                 return undefined;
             }
         }
     }
 }
 
-class Settings {
+class Storage {
     constructor() {
-        this.settings = new Map();
+        this.storage = new Map();
     }
 
     // Register
 
-    register_bool_setting(setting_name, bound_element) {
-        this.settings.set(setting_name, new SettingValue("bool", bound_element, false));
+    register_bool(item_name, bound_element, bound_type) {
+        this.storage.set(item_name, new StorageElement("bool", bound_element, bound_type, false));
     }
 
-    register_number_setting(setting_name, bound_element) {
-        this.settings.set(setting_name, new SettingValue("number", bound_element, 0));
+    register_number(item_name, bound_element, bound_type) {
+        this.storage.set(item_name, new StorageElement("number", bound_element, bound_type, 0));
     }
 
     // Store & Load
 
+    update() {
+        for (const [item_name, storage_item] of this.storage) {
+            localStorage.setItem(item_name, storage_item.pack());
+            storage_item.load();
+        }
+    }
+
     store() {
-        for (const [setting_name, setting_value] of this.settings) {
-            localStorage.setItem(setting_name, setting_value.pack());
+        for (const [item_name, storage_item] of this.storage) {
+            localStorage.setItem(item_name, storage_item.pack());
         }
     }
 
     load() {
-        for (const [setting_name] of this.settings) {
-            const setting = this.settings.get(setting_name);
-            setting.set_value(setting.unpack(localStorage.getItem(str(setting_name))));
-            setting.load();
+        for (const [item_name, storage_item] of this.storage) {
+            const item = localStorage.getItem(str(item_name));
+
+            if (item !== undefined && item !== null) {
+                storage_item.set_value(storage_item.unpack(item));
+                storage_item.update();
+            }
         }
     }
 
     // Getter & Setter
 
-    get(setting_name) {
-        const setting = this.settings.get(setting_name);
+    get(item_name) {
+        const setting = this.storage.get(item_name);
         return (setting === undefined || setting === null) ? undefined : setting.get_value();
     }
 
-    set(setting_name, value) {
-        this.settings.get(setting_name).set_value(value);
+    set(item_name, value) {
+        this.storage.get(item_name).set_value(value);
     }
 }
 
-const settings = new Settings();
+const storage = new Storage();
 
 let setting_sequences = null;
 let setting_selected_sequence = null;
 let setting_uploaded_files = null;
 
-function register_settings() {
+function register_storage() {
     const element_setting_screen_shake = document.getElementById("setting_screen_shake");
     const element_setting_hearths      = document.getElementById("setting_hearths");
     const element_setting_vibrations   = document.getElementById("setting_vibrations");
     const element_setting_confetti     = document.getElementById("setting_confetti");
 
+    const element_current_score = document.getElementById("current_score");
+    const element_high_score    = document.getElementById("high_score");
+
     // register settings
 
-    settings.register_bool_setting("setting_screen_shake", element_setting_screen_shake);
-    settings.register_bool_setting("setting_hearths", element_setting_hearths);
-    settings.register_bool_setting("setting_vibrations", element_setting_vibrations);
-    settings.register_bool_setting("setting_confetti", element_setting_confetti);
+    storage.register_bool("setting_screen_shake", element_setting_screen_shake, "checkbox");
+    storage.register_bool("setting_hearths", element_setting_hearths, "checkbox");
+    storage.register_bool("setting_vibrations", element_setting_vibrations, "checkbox");
+    storage.register_bool("setting_confetti", element_setting_confetti, "checkbox");
+
+    storage.register_number("current_score", element_current_score, "content");
+    storage.register_number("high_score", element_high_score, "content");
 
     setting_sequences = [ "Euler's Number", "PI", "Square Root of 2" ];
     setting_selected_sequence = setting_sequences[0];
     setting_uploaded_files = new Map();
 }
 
-function store_setting() {
-    settings.store();
+function storage_store() {
+    storage.store();
 
     // TODO: store uploaded files & selected sequence
 }
 
-function load_settings() {
-    settings.load();
+function storage_load() {
+    storage.load();
 }
 
 ////////////////////////////////
@@ -261,7 +372,7 @@ function set_favicon() {
 }
 
 function play_confetti_animation() {
-    if (!settings.get("setting_confetti")) {
+    if (!storage.get("setting_confetti")) {
         return;
     }
 
@@ -289,14 +400,14 @@ function play_confetti_animation() {
 ////////////////////////////////
 
 class GameState {
-    constructor() {
-        this.number_sequence = ""; // the current active number sequence
+    constructor(stored_current_score, stored_high_score, number_sequence) {
+        this.number_sequence = number_sequence; // the current active number sequence
         this.start_index = 0; // the index to the start of the number (typically the index after the decimal separator)
-        this.current_index = 0; // the index of the current digit
+        this.current_index = 0; // the index of the current character in @number_sequence
 
         this.prev_high_score = 0;
         this.animation_played = false;
-        this.high_score = 0; // the users highest score
+        this.high_score = stored_high_score; // the users highest score
 
         this.hearths = 0; // how many lives are left
 
@@ -311,6 +422,20 @@ class GameState {
 
         this.color_red = variables.getPropertyValue("--color_red").trim();
         this.color_green = variables.getPropertyValue("--color_green").trim();
+
+        // reset & update the screen to the stored score
+
+        this.reset();
+
+        if (stored_current_score > 1) {
+            this.current_index = this.start_index + stored_current_score;
+
+            this.clear_screen();
+            this.print_to_screen(this.number_sequence.substring(0, this.current_index));
+
+            this.update_screen();
+            this.update_scores();
+        }
     }
 
     // Getter
@@ -346,11 +471,14 @@ class GameState {
         const score = this.get_score();
         if (this.high_score < score) {
             this.high_score = score;
-            localStorage.setItem("high_score", score); // TODO: move elsewhere
+            storage.set("high_score", this.high_score);
         }
 
         this.element_high_score.innerText    = str(this.high_score);
         this.element_current_score.innerText = str(score);
+
+        storage.set("current_score", score);
+        storage.store();
     }
 
     consume_digit() {
@@ -371,6 +499,10 @@ class GameState {
         for (const child of this.element_hearths.children) {
             child.classList.remove("animation_hearth_pop");
         }
+    }
+
+    clear_screen() {
+        this.element_screen.innerText = "";
     }
 
     reset_screen() {
@@ -468,7 +600,7 @@ class GameState {
 
         feedback_vibrate(300);
 
-        if (settings.get("setting_screen_shake")) {
+        if (storage.get("setting_screen_shake")) {
             this.element_screen.animate(
                 [
                     { transform: "translateX(0)    translateY(0)"    },
@@ -492,7 +624,7 @@ class GameState {
             }
         )
 
-        if (settings.get("setting_hearths")) {
+        if (storage.get("setting_hearths")) {
             if (this.hearths === 0) {
                 this.reset_animation();
             } else {
@@ -517,19 +649,19 @@ function settings_update() {
     const element_setting_vibrations   = document.getElementById("setting_vibrations");
     const element_setting_confetti     = document.getElementById("setting_confetti");
 
-    settings.set("setting_screen_shake", !element_setting_screen_shake.checked);
+    storage.set("setting_screen_shake", element_setting_screen_shake.checked);
 
-    if (element_setting_hearths.checked === false || element_setting_hearths.checked === true && (game_state.current_index - 1) === game_state.start_index) {
+    if (element_setting_hearths.checked || element_setting_hearths.checked === false && (game_state.current_index - 1) === game_state.start_index) {
         game_state.reset_hearths();
-        settings.set("setting_hearths", !element_setting_hearths.checked);
+        storage.set("setting_hearths", element_setting_hearths.checked);
     } else {
         element_setting_hearths.checked = !element_setting_hearths.checked;
     }
 
-    settings.set("setting_vibrations", !element_setting_vibrations.checked);
-    settings.set("setting_confetti", !element_setting_confetti.checked);
+    storage.set("setting_vibrations", element_setting_vibrations.checked);
+    storage.set("setting_confetti", element_setting_confetti.checked);
 
-    store_setting();
+    storage_store();
 }
 
 async function settings_choose_sequence() {
@@ -605,8 +737,8 @@ function settings_choose_file(event) {
 
         // store file content for usage
 
-        const sequences = settings.get("sequences");
-        const uploaded_files = settings.get("uploaded_files");
+        const sequences = storage.get("sequences");
+        const uploaded_files = storage.get("uploaded_files");
 
         sequences.push(file.name);
         uploaded_files.set(file.name, content);
@@ -661,9 +793,10 @@ document.addEventListener("DOMContentLoaded", async function() {
     first_time_visited = !document.cookie.includes("visited");
     document.cookie = "visited=true; SameSite=Strict; Secure; path=/";
 
-    // register settings
+    // register storage
 
-    register_settings();
+    register_storage();
+    storage_load();
 
     // update favicon
 
@@ -683,16 +816,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // initialize the game state
 
-    game_state = new GameState();
-    game_state.set_number_sequence(await get_resource("e.txt"));
+    game_state = new GameState(storage.get("current_score"), storage.get("high_score"), await get_resource("e.txt"));
 
-    game_state.reset();
-
-    // get scores from local storage
-
-    game_state.high_score = localStorage.getItem("high_score");
-    game_state.update_scores();
-
-    load_settings();
     settings_update();
 });

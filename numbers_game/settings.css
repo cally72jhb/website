@@ -1,5 +1,6 @@
 .setting input {
     appearance: none;
+    display: none;
 }
 
 .setting span {
@@ -13,17 +14,15 @@
 }
 
 .setting_on_off:has(input[type="checkbox"])::after {
-    user-select: none;
-    color: var(--light_mode_color_setting_on);
-    font-weight: 500;
-    content: "on";
-}
-
-.setting_on_off:has(input[type="checkbox"]:checked)::after {
-    user-select: none;
     color: var(--light_mode_color_setting_off);
     font-weight: 500;
     content: "off";
+}
+
+.setting_on_off:has(input[type="checkbox"]:checked)::after {
+    color: var(--light_mode_color_setting_on);
+    font-weight: 500;
+    content: "on";
 }
 
 /* Theme Setting */

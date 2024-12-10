@@ -12,6 +12,8 @@
     }
 }
 
+/* shrink score display & dark mode button */
+
 @media only screen and (max-width: 515px), (max-height: 700px) {
     #current_score::before {
         content: "";
@@ -28,6 +30,8 @@
     }
 }
 
+/* calculator and fontsize changes */
+
 @media only screen and (min-width: 3000px), (min-height: 3000px) {
     :root {
         --font_size_multiplier: 2.0;
@@ -39,8 +43,8 @@
     }
 
     #calculator_screen {
-        --calculator_screen_shadow: 4px 4px var(--theme_color_calculator_screen_text_shadow);
-        --calculator_screen_shadow_light: 2px 2px var(--theme_color_calculator_screen_text_shadow);
+        --calculator_screen_shadow: 6px 6px var(--theme_color_calculator_screen_text_shadow);
+        --calculator_screen_shadow_light: 3px 3px var(--theme_color_calculator_screen_text_shadow);
     }
 }
 
@@ -75,6 +79,8 @@
         --calculator_screen_shadow_light: 1px 1px var(--theme_color_calculator_screen_text_shadow);
     }
 }
+
+/* too small screen */
 
 @media only screen and (max-width: 300px), (max-height: 400px) {
     body {

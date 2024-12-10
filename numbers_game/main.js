@@ -447,6 +447,7 @@ class GameState {
 
                 temp_game_state.current_index--;
                 temp_game_state.update_scores();
+                feedback_vibrate(35);
                 setTimeout(remove_character, speed);
             } else {
                 temp_game_state.reset_screen();
@@ -502,7 +503,7 @@ class GameState {
             feedback_vibrate(100);
             play_confetti_animation();
         } else {
-            feedback_vibrate(10);
+            feedback_vibrate(45);
         }
     }
 
@@ -510,7 +511,7 @@ class GameState {
         const button_element = document.getElementById("button" + button);
         const color_button = getComputedStyle(button_element).backgroundColor;
 
-        feedback_vibrate(25);
+        feedback_vibrate(55);
 
         if (storage.get("setting_screen_shake")) {
             this.element_screen.animate(

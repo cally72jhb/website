@@ -1,4 +1,10 @@
-let first_time_visited = false;
+import { Storage } from "./storage.js";
+
+////////////////////////////////
+// Global Variables           //
+////////////////////////////////
+
+let storage = null;
 let variables = null;
 
 let prefers_dark_mode = false;
@@ -17,10 +23,6 @@ export function num(value) {
 
 export function bool(value) {
     return ["true", "1"].includes(value);
-}
-
-export function website_first_time_visited() {
-    return first_time_visited;
 }
 
 export function get_css_variable(identifier) {
@@ -49,8 +51,12 @@ export function element_animations_finished(element) {
     return true;
 }
 
+export function element_add_event(event, element, function_callback) {
+    element.addEventListener(event, function_callback);
+}
+
 export function add_event(event, element_id, function_callback) {
-    document.getElementById(element_id).addEventListener(event, function_callback);
+    element_add_event(event, document.getElementById(element_id), function_callback);
 }
 
 export function add_click_event(element_id, function_callback) {
@@ -86,20 +92,28 @@ export async function get_file_content(file_path) {
 ////////////////////////////////
 
 document.addEventListener("DOMContentLoaded", async function() {
-    first_time_visited = !document.cookie.includes("visited");
-    document.cookie = "visited=true; SameSite=Strict; Secure; path=/";
-
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    prefers_dark_mode = media.matches;
     variables = getComputedStyle(document.querySelector(":root"));
 
-    // @prefers_dark_mode
+    // register storage
 
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    storage = new Storage();
 
-    prefers_dark_mode = media.matches;
-    if (prefers_dark_mode && website_first_time_visited()) { // update dark mode the first time the website was loaded
-        const element_dark_mode_button = document.getElementById("button_dark_mode");
-        element_dark_mode_button.checked = true;
-        element_update(element_dark_mode_button);
+    const element_dark_mode_button = document.getElementById("button_dark_mode");
+    if (element_dark_mode_button !== undefined && element_dark_mode_button !== null) {
+        storage.register_bool("setting_dark_mode", element_dark_mode_button, "checkbox");
+        element_add_event("click", element_dark_mode_button, function() { storage.update(); storage.store(); });
+
+        if (!storage.has_saved_data) {
+            element_dark_mode_button.checked = prefers_dark_mode;
+            element_update(element_dark_mode_button);
+
+            storage.update();
+            storage.store();
+
+            console.log("saved");
+        }
     }
 
     media.addEventListener("change", event => {

@@ -1,0 +1,9 @@
+#info_section {
+    position: relative;
+}
+
+#disclaimer {
+    position: absolute;
+
+    bottom: 5ch;
+}

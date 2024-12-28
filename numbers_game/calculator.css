@@ -1,3 +1,16 @@
+:root {
+    --theme_color_calculator_top: #383838;
+    --theme_color_calculator_bottom: #4C4C4C;
+    --theme_color_calculator_button: #B5B5B5;
+    --theme_color_calculator_button_shadow: var(--theme_color_solid_shadow);
+    --theme_color_calculator_button_text: #181818;
+    --theme_color_calculator_button_preview: #CAAF45;
+    --theme_color_calculator_button_reset: #CA4547;
+    --theme_color_calculator_screen: #8EB95D;
+    --theme_color_calculator_screen_text: #1C2326;
+    --theme_color_calculator_screen_text_shadow: #59733A;
+}
+
 #calculator {
     aspect-ratio: 3/4;
 
@@ -13,11 +26,15 @@
 
     border-radius: 25px;
 
-    box-shadow: 15px 15px var(--light_mode_color_shadow);
+    box-shadow: 15px 15px var(--theme_color_shadow);
     background-color: var(--theme_color_calculator_top);
 
     --calculator_font_size_multiplier: 1.0;
     --calculator_icon_size_multiplier: 1.0;
+
+    --button_dark_mode_size: calc(24px * var(--calculator_icon_size_multiplier));
+    --button_dark_mode_shadow: var(--calculator_screen_shadow);
+    --button_dark_mode_color: var(--theme_color_calculator_screen_text);
 }
 
 #calculator_buttons {
@@ -71,6 +88,7 @@
     --button_shadow_y: 7px;
     box-shadow: var(--button_shadow_x) var(--button_shadow_y) var(--theme_color_calculator_button_shadow);
 
+    color: var(--theme_color_calculator_button_text);
     background-color: var(--theme_color_calculator_button);
 
     font-size: calc(48px * var(--calculator_font_size_multiplier));
@@ -113,9 +131,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-} .button_icon svg {
-      width: calc(52px * var(--calculator_icon_size_multiplier));
-  }
+}
+.button_icon svg {
+    width: calc(52px * var(--calculator_icon_size_multiplier));
+    fill: var(--color_black);
+}
 
 #button0 { grid-area: b0; }
 #button1 { grid-area: b1; }
@@ -325,69 +345,6 @@
         opacity: 0.0;
         transform: scale(1.0, 1.0);
     }
-}
-
-.button_dark_mode {
-    --button_dark_mode_size: calc(24px * var(--calculator_icon_size_multiplier));
-
-    width: var(--button_dark_mode_size);
-    height: var(--button_dark_mode_size);
-
-    transform: rotateZ(0deg);
-    box-shadow: inset calc(var(--button_dark_mode_size) * 0.40) calc(var(--button_dark_mode_size) * -0.32) 0;
-    filter: drop-shadow(var(--calculator_screen_shadow));
-    border-radius: 100px;
-
-    color: var(--theme_color_calculator_screen_text);
-
-    transition-property: box-shadow, color;
-    transition-delay: 0s;
-    transition-duration: 0.45s;
-    transition-timing-function: ease-in-out;
-}
-
-.button_dark_mode:hover {
-    transform: rotateZ(0.0deg);
-
-    animation-name: animation_shake;
-    animation-delay: 0.1s;
-    animation-duration: 0.75s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: 1;
-}
-
-@keyframes animation_shake {
-    0% {
-        transform: rotateZ(0.0deg);
-    }
-
-    25% {
-        transform: rotateZ(-6.0deg);
-    }
-
-    50% {
-        transform: rotateZ(6.0deg);
-    }
-
-    75% {
-        transform: rotateZ(-3.0deg);
-    }
-
-    100% {
-        transform: rotateZ(0.0deg);
-    }
-}
-
-#button_dark_mode {
-    appearance: none;
-    outline: none;
-    cursor: pointer;
-}
-
-:root:has(#button_dark_mode:checked) label[for="button_dark_mode"].button_dark_mode {
-    transform: rotateZ(0deg);
-    box-shadow: inset 0 0 0 var(--button_dark_mode_size);
-    filter: drop-shadow(var(--calculator_screen_shadow));
 }
 
 #score {

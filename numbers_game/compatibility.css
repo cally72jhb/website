@@ -89,7 +89,9 @@
 
     #error {
         display: flex;
-    } #error::after {
+    }
+
+    #error::after {
         content: "screen is too small";
     }
 }

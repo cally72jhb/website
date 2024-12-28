@@ -157,14 +157,14 @@
     --light_mode_color_favicon: var(--color_black);
 
     --light_mode_color_text: #283237;
-    --light_mode_color_text_secondary: #4D5C62;
-    --light_mode_color_text_tertiary: #344044;
+    --light_mode_color_text_secondary: #344044;
+    --light_mode_color_text_tertiary: #68757a;
     --light_mode_color_text_inverted: #F4F4F4;
     --light_mode_color_text_dark: #283237;
 
     --light_mode_color_background: #CCC6C0;
     --light_mode_color_background_secondary: #D5D1CC;
-    --light_mode_color_background_inverted: #4f4c4c;
+    --light_mode_color_background_inverted: #0A0A0A;
 
     --light_mode_color_primary: #808080;
     --light_mode_color_secondary: #3C3C3C;
@@ -179,7 +179,7 @@
 
     /* Dark Theme Colors */
 
-    --dark_mode_color_favicon: var(--color_off_white);
+    --dark_mode_color_favicon: var(--color_white);
 
     --dark_mode_color_text: #F5F0EB;
     --dark_mode_color_text_secondary: #BABDBE;
@@ -458,11 +458,11 @@ svg {
     font-size: calc(28px * var(--font_size_multiplier));
 }
 
-.text a, .text_inverted a {
+.link {
     color: var(--theme_color_text);
 }
 
-.text a:focus-visible, .text_inverted a:focus-visible {
+.link:focus-visible {
     outline: var(--theme_color_accent) solid 2px;
 }
 

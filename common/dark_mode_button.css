@@ -45,6 +45,45 @@
     animation-iteration-count: 1;
 }
 
+:root:has(#button_dark_mode:checked) .button_dark_mode {
+    transform: rotateZ(0deg);
+    box-shadow: inset 0 0 0 var(--button_dark_mode_size);
+    filter: drop-shadow(var(--button_dark_mode_shadow));
+}
+
+.button_dark_mode_inverted {
+    width: var(--button_dark_mode_size);
+    height: var(--button_dark_mode_size);
+
+    transform: rotateZ(0deg);
+
+    border-radius: 100%;
+    box-shadow: inset 0 0 0 var(--button_dark_mode_size);
+    filter: drop-shadow(var(--button_dark_mode_shadow));
+    color: var(--button_dark_mode_color);
+
+    transition-property: box-shadow;
+    transition-delay: 0s;
+    transition-duration: 0.45s;
+    transition-timing-function: ease-in-out;
+}
+
+.button_dark_mode_inverted:hover {
+    transform: rotateZ(0.0deg);
+
+    animation-name: animation_shake;
+    animation-delay: 0.1s;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+:root:has(#button_dark_mode:checked) .button_dark_mode_inverted {
+    transform: rotateZ(0deg);
+    box-shadow: inset calc(var(--button_dark_mode_size) * 0.40) calc(var(--button_dark_mode_size) * -0.32) 0;
+    filter: drop-shadow(var(--button_dark_mode_shadow));
+}
+
 @keyframes animation_shake {
     0% {
         transform: rotateZ(0.0deg);
@@ -65,10 +104,4 @@
     100% {
         transform: rotateZ(0.0deg);
     }
-}
-
-:root:has(#button_dark_mode:checked) .button_dark_mode {
-    transform: rotateZ(0deg);
-    box-shadow: inset 0 0 0 var(--button_dark_mode_size);
-    filter: drop-shadow(var(--button_dark_mode_shadow));
 }

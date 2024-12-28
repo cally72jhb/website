@@ -458,6 +458,10 @@ svg {
     font-size: calc(28px * var(--font_size_multiplier));
 }
 
+.text a, .text_inverted a {
+    color: var(--theme_color_text);
+}
+
 .text a:focus-visible, .text_inverted a:focus-visible {
     outline: var(--theme_color_accent) solid 2px;
 }

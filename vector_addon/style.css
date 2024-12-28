@@ -29,8 +29,6 @@ body {
 
     overflow-x: hidden;
     overflow-y: auto;
-    overscroll-behavior-x: none;
-    overscroll-behavior-y: contain;
 
     perspective: 300px;
 }

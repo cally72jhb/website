@@ -31,6 +31,10 @@
     transition-timing-function: ease;
 }
 
+.button:is(a) { /* override color from common/style.css */
+    color: var(--dark_mode_color_text_inverted);
+}
+
 .button:hover {
     font-size: calc(24px * var(--font_size_multiplier));
 }

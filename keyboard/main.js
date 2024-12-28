@@ -1,4 +1,4 @@
-import {add_click_event, element_update, feedback_vibrate} from "../common/common.js";
+import {add_click_event, element_add_event, element_update, feedback_vibrate} from "../common/common.js";
 
 ////////////////////////////////
 // Global Variables           //
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     const element_keyboard = document.getElementById("keyboard");
     for (let button of element_keyboard.querySelectorAll("button")) {
-        add_click_event(button, function() {
+        element_add_event("click", button, function() {
             feedback_vibrate(40);
         });
     }

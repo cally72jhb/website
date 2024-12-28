@@ -1,0 +1,88 @@
+#navigation {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: fit-content;
+
+    padding: 15px 15px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 0 12px;
+
+    visibility: visible;
+    pointer-events: none;
+
+    transition: all 0.5s ease 0s;
+
+    --button_dark_mode_size: 24px;
+    --button_dark_mode_shadow: 0 0 #000000;
+    --button_dark_mode_color: #000000;
+}
+
+.icon {
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    box-shadow: 0 10px 10px var(--light_mode_color_solid_shadow);
+    background-color: #FFFFFF;
+    fill: #000000;
+
+    transform: translateY(5px);
+
+    transition-property: all;
+    transition-delay: 0s;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
+}
+
+.icon svg {
+    width: 25px;
+}
+
+.icon:hover {
+    width: 200px;
+}
+
+.icon:hover svg {
+    width: 21px;
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Colors */
+
+.icon_youtube:hover {
+    background-color: #DE463D;
+    fill: #FFFFFF;
+}
+
+.icon_discord:hover {
+    background-color: #7288DA;
+    fill: #FFFFFF;
+}
+
+.icon_github:hover {
+    background-color: #454545;
+    fill: #FFFFFF;
+}
+
+.icon_theme:hover {
+    background-color: #f1c451;
+    fill: #FFFFFF;
+}

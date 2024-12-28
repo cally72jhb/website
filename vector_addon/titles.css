@@ -1,0 +1,84 @@
+.title_center_container {
+    height: 85px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_left_container {
+    height: max-content;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.title {
+    position: relative;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin-top: 1ch;
+
+    block-size: fit-content;
+
+    cursor: pointer;
+    user-select: none;
+
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    font-size: calc(33px * var(--font_size_multiplier));
+    color: var(--theme_color_text);
+
+    transition: opacity 0.25s ease, font-size 0.25s ease, color var(--theme_transition), background-color var(--theme_transition);
+}
+
+.title:hover {
+    font-size: calc(38px * var(--font_size_multiplier));
+    opacity: 0.95;
+
+    transition-property: opacity, font-size;
+    transition-delay: 0s;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+
+.title::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    visibility: hidden;
+
+    border-radius: 10px;
+    background-color: var(--theme_color_text);
+
+    content: "";
+
+    transform: scaleX(0.0);
+
+    transition-property: all;
+    transition-delay: 0s;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.title_left:before {
+    transform-origin: top left;
+}
+
+.title:hover::before {
+    visibility: visible;
+    transform: scaleX(1.0);
+    opacity: 0.95;
+
+    transition-property: transform, opacity;
+    transition-delay: 0s;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}

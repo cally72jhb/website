@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> <!-- HEAD -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+    <meta name="description" content="a keyboard"/>
+    <meta name="theme-color" content="#F4F4F4"/>
+    <meta name="keywords" content="css keyboard, keyboard"/>
+    <meta name="author" content="cally72jhb"/>
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="website"/>
+    <meta property="og:description" content="a keyboard"/>
+    <meta property="og:image" content="unset"/>
+    <meta property="og:url" content="https://cally72jhb.github.io/website"/>
+
+    <link rel="icon" type="image/svg+xml" href=""/>
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="../common/style.css"/>
+
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="keyboard.css"/>
+    <link rel="stylesheet" href="compatibility.css"/>
+
+    <!-- Scripts -->
+
+    <script type="module" src="../common/common.js"></script>
+    <script type="module" src="../common/favicon.js"></script>
+
+    <!-- Other -->
+
+    <title>Keyboard</title>
+</head> <!-- HEAD -->
+
+<body translate="no"> <!-- BODY --> <!-- TODO: color #D6E3F8 for lock key indicator, #F7C548 for dark mode button sun -->
+
+    <!-- FAVICON & THEME BUTTON -->
+
+    <div id="favicon_data">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128L0 384c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 64zm16 64l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM64 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm16 80l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zm80-176c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm16 80l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM160 336c0-8.8 7.2-16 16-16l224 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-224 0c-8.8 0-16-7.2-16-16l0-32zM272 128l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM256 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM368 128l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM352 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zM464 128l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16zM448 240c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32zm16 80l32 0c8.8 0 16 7.2 16 16l0 32c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-32c0-8.8 7.2-16 16-16z"/></svg>
+    </div>
+
+    <input id="button_dark_mode" type="checkbox" hidden> <!-- only accessed through labels to prevent jump to content when interacting -->
+
+    <!-- ERROR SECTION -->
+
+    <div id="error">error:</div>
+
+    <!-- PAGE_START -->
+
+    <div id="page_start" class="container_center_x container_sized">
+        <div id="main">
+            <span class="bold_heading">
+                Keyboard
+            </span>
+
+            <div id="keyboard">
+                <div class="keyboard_row">
+                    <div class="button button_escape button_red" data-key="escape">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                    </div>
+                    <button class="button">1</button>
+                    <button class="button">2</button>
+                    <button class="button">3</button>
+                    <button class="button">4</button>
+                    <button class="button">5</button>
+                    <button class="button">6</button>
+                    <button class="button">7</button>
+                    <button class="button">8</button>
+                    <button class="button">9</button>
+                    <button class="button">0</button>
+                    <button class="button">=</button>
+                    <button class="button button_back" data-key="back">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"/></svg>
+                    </button>
+                </div>
+                <div class="keyboard_row">
+                    <button class="button button_tab" data-key="tab">Tab</button>
+                    <button class="button">Q</button>
+                    <button class="button">W</button>
+                    <button class="button">E</button>
+                    <button class="button">R</button>
+                    <button class="button">T</button>
+                    <button class="button">Y</button>
+                    <button class="button">U</button>
+                    <button class="button">I</button>
+                    <button class="button">O</button>
+                    <button class="button">P</button>
+                    <button class="button">\</button>
+                    <label class="button" for="button_dark_mode">
+                        <span class="button_dark_mode" style="margin-left: 2px; margin-top: 2px;"></span>
+                    </label>
+                </div>
+                <div class="keyboard_row">
+                    <button class="button button_caps_lock" data-key="caps_lock">Caps</button>
+                    <button class="button">A</button>
+                    <button class="button">S</button>
+                    <button class="button">D</button>
+                    <button class="button">F</button>
+                    <button class="button">G</button>
+                    <button class="button">H</button>
+                    <button class="button">J</button>
+                    <button class="button">K</button>
+                    <button class="button">L</button>
+                    <button class="button">;</button>
+                    <button class="button button_return" data-key="return">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M32 64C14.3 64 0 49.7 0 32S14.3 0 32 0l96 0c53 0 96 43 96 96l0 306.7 73.4-73.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-128 128c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 402.7 160 96c0-17.7-14.3-32-32-32L32 64z"/></svg>
+                    </button>
+                </div>
+                <div class="keyboard_row">
+                    <button class="button button_left_shift" data-key="left_shift">Shift</button>
+                    <button class="button">Z</button>
+                    <button class="button">X</button>
+                    <button class="button">C</button>
+                    <button class="button">V</button>
+                    <button class="button">B</button>
+                    <button class="button">N</button>
+                    <button class="button">M</button>
+                    <button class="button">,</button>
+                    <button class="button">.</button>
+                    <button class="button">/</button>
+                    <button class="button button_right_shift" data-key="right_shift">Shift</button>
+                </div>
+                <div class="keyboard_row">
+                    <button class="button button_left_control" data-key="left_control">Ctrl</button>
+                    <button class="button button_shape">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <circle cx="52%" cy="52%" r="33%"></circle>
+                        </svg>
+                    </button>
+                    <button class="button button_alt"    data-key="alt">Alt</button>
+                    <button class="button button_space"  data-key="space"></button>
+                    <button class="button button_alt_gr" data-key="alt_gr">Alt Gr</button>
+                    <button class="button button_shape">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <circle cx="50%" cy="50%" r="33%"></circle>
+                        </svg>
+                    </button>
+                    <button class="button button_shape">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <rect x="15%" y="15%" width="70%" height="70%" rx="20%"></rect>
+                        </svg>
+                    </button>
+                    <button class="button button_right_control" data-key="right_control">Ctrl</button>
+                </div>
+            </div>
+
+            <div id="disclaimer">
+                <div class="disclaimer text_left">
+                    Icons by
+                    <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">
+                        Font Awesome
+                    </a>
+                    <br/>
+
+                    Fonts by
+                    <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">
+                        Google Fonts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <script type="module" src="main.js"></script>
+
+    <!-- SCRIPTS -->
+
+</body> <!-- BODY -->
+
+</html>

@@ -1,0 +1,129 @@
+.parallax_container {
+    width: 100%;
+    height: 100svh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+}
+
+.parallax_layers {
+    position: relative;
+
+    height: 100vh;
+    width: 100vw;
+
+    transform-style: preserve-3d;
+}
+
+.parallax_layer {
+    position: absolute;
+
+    top: -60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    user-select: none;
+
+    transition-property: filter;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+
+:root:has(#button_dark_mode:not(:checked)) .parallax_layer {
+    filter: invert() brightness(80%);
+}
+
+/* Layers */
+
+.layer_1 {
+    z-index: 1;
+
+    background: url("./assets/images/background/layer-0.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(-600px) scale(3.00);
+}
+
+.layer_2 {
+    z-index: 2;
+
+    background: url("./assets/images/background/layer-1.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(-525px) scale(2.75);
+}
+
+.layer_3 {
+    z-index: 3;
+
+    background: url("./assets/images/background/layer-4.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(-400px) scale(2.33);
+}
+
+.layer_4 {
+    z-index: 4;
+
+    background: url("./assets/images/background/layer-2.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(-250px) scale(1.83);
+}
+
+.layer_5 {
+    z-index: 5;
+
+    background: url("./assets/images/background/layer-3.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(-125px) scale(1.44);
+}
+
+.layer_6 {
+    z-index: 6;
+
+    background: url("./assets/images/background/layer-5.png") no-repeat center;
+    background-size: cover;
+
+    transform: translateZ(0) scale(1.0);
+}
+
+.layer_7 {
+    z-index: 7;
+    top: -15%;
+
+    background: linear-gradient(transparent 0%, transparent 25%, #000000FF 100%);
+    background-size: cover;
+
+    transform: translateZ(0) scale(1);
+}
+
+/* Landing Page Title Text */
+
+#title_text {
+    position: absolute;
+    z-index: 12;
+
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    user-select: none;
+
+    font-family: "Raleway", sans-serif;
+    font-weight: 800;
+    font-size: calc(130px * var(--font_size_multiplier));
+
+    color: #42F399;
+}

@@ -1,0 +1,239 @@
+:root {
+    --theme_color_keyboard: #FFFFFF;
+    --theme_color_keyboard_button: #F0F0F0;
+    --theme_color_keyboard_shadow: #DEDEDE;
+
+    --theme_color_keyboard_button_red: #EE786E;
+    --theme_color_keyboard_button_red_shadow: #DAC5C3;
+}
+
+:root:has(#button_dark_mode:checked) {
+    --theme_color_keyboard: #465160;
+    --theme_color_keyboard_button: #5B6D7E;
+    --theme_color_keyboard_shadow: #72869A;
+
+    --theme_color_keyboard_button_red: #CB635B;
+    --theme_color_keyboard_button_red_shadow: #B78881;
+}
+
+/* Sections */
+
+#main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 20px;
+}
+
+#keyboard {
+    --keyboard_font_size_multiplier: 1.25;
+    --keyboard_size_multiplier: 1.25;
+
+    width: auto;
+    height: auto;
+
+    max-width: 95vw;
+    max-height: 90svh;
+
+    padding: 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(10px * var(--keyboard_size_multiplier)) 0;
+    flex-wrap: wrap;
+
+    overflow: hidden;
+
+    touch-action: pan-y pinch-zoom;
+
+    border-radius: calc(15px * var(--keyboard_size_multiplier));
+
+    box-shadow: calc(8px * var(--keyboard_size_multiplier)) calc(12px * var(--keyboard_size_multiplier)) calc(16px * var(--keyboard_size_multiplier)) var(--theme_color_shadow);
+    background-color: var(--theme_color_keyboard);
+}
+
+.keyboard_row {
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 calc(7px * var(--keyboard_size_multiplier));
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+
+.button {
+    --button_size: calc(53px * var(--keyboard_size_multiplier));
+    min-width: var(--button_size);
+    width: fit-content;
+    height: var(--button_size);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: calc(10px * var(--keyboard_size_multiplier));
+
+    appearance: none;
+    user-select: none;
+
+    border: none;
+
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    font-size: calc(19px * var(--keyboard_font_size_multiplier));
+
+    color: var(--theme_color_text);
+    background-color: var(--theme_color_keyboard_button);
+    --button_sadow_position: 0 calc(3px * var(--keyboard_size_multiplier));
+    box-shadow: var(--button_sadow_position) var(--theme_color_keyboard_shadow);
+}
+
+.button svg {
+    fill: var(--theme_color_text);
+}
+
+.button:active {
+    transform: translateY(2px);
+    --button_sadow_position: 0 1px;
+}
+
+.button:is(.active) { /* used in js to "press" the button when the user presses the corresponding key */
+    transform: translateY(2px);
+    --button_sadow_position: 0 1px;
+}
+
+.button:focus-visible {
+    outline: var(--theme_color_accent) solid 2px;
+}
+
+/* Buttons */
+
+.button_escape {
+    width: calc(60px * var(--keyboard_size_multiplier));
+
+    background-color: var(--theme_color_keyboard_button_red);
+    box-shadow: var(--button_sadow_position) var(--theme_color_keyboard_button_red_shadow);
+}
+
+.button_escape svg {
+    width: calc(20px * var(--keyboard_size_multiplier));
+}
+
+.button_back {
+    width: calc(90px * var(--keyboard_size_multiplier));
+}
+
+.button_back svg {
+    width: calc(25px * var(--keyboard_size_multiplier));
+}
+
+.button_dark_mode {
+    --button_dark_mode_size: calc(18px * var(--keyboard_size_multiplier));
+
+    width: var(--button_dark_mode_size);
+    height: var(--button_dark_mode_size);
+
+    transform: rotateZ(0deg);
+    box-shadow: inset calc(var(--button_dark_mode_size) * 0.40) calc(var(--button_dark_mode_size) * -0.32) 0;
+    filter: drop-shadow(var(--calculator_screen_shadow));
+    border-radius: 100px;
+
+    color: var(--theme_color_calculator_screen_text);
+
+    transition-property: box-shadow;
+    transition-delay: 0s;
+    transition-duration: 0.45s;
+    transition-timing-function: ease-in-out;
+}
+
+.button_dark_mode:hover {
+    transform: rotateZ(0.0deg);
+
+    animation-name: animation_shake;
+    animation-delay: 0.1s;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes animation_shake {
+    0% {
+        transform: rotateZ(0.0deg);
+    }
+
+    25% {
+        transform: rotateZ(-6.0deg);
+    }
+
+    50% {
+        transform: rotateZ(6.0deg);
+    }
+
+    75% {
+        transform: rotateZ(-3.0deg);
+    }
+
+    100% {
+        transform: rotateZ(0.0deg);
+    }
+}
+
+:root:has(#button_dark_mode:checked) .button_dark_mode {
+    transform: rotateZ(0deg);
+    box-shadow: inset 0 0 0 var(--button_dark_mode_size);
+    filter: drop-shadow(var(--calculator_screen_shadow));
+}
+
+.button_caps_lock {
+    width: calc(98px * var(--keyboard_size_multiplier));
+}
+
+.button_tab {
+    width: calc(82px * var(--keyboard_size_multiplier));
+}
+
+.button_return {
+    width: calc(105px * var(--keyboard_size_multiplier));
+}
+
+.button_return svg {
+    width: calc(18px * var(--keyboard_size_multiplier));
+    transform: translateY(2px) rotateZ(90deg);
+}
+
+.button_shape svg {
+    width: calc(20px * var(--keyboard_size_multiplier));
+}
+
+.button_left_shift {
+    width: calc(125px * var(--keyboard_size_multiplier));
+}
+
+.button_right_shift {
+    width: calc(105px * var(--keyboard_size_multiplier));
+}
+
+.button_left_control {
+    width: calc(100px * var(--keyboard_size_multiplier));
+}
+
+.button_right_control {
+    width: calc(85px * var(--keyboard_size_multiplier));
+}
+
+.button_alt {
+    width: calc(95px * var(--keyboard_size_multiplier));
+}
+
+.button_alt_gr {
+    width: calc(100px * var(--keyboard_size_multiplier));
+}
+
+.button_space {
+    width: calc(250px * var(--keyboard_size_multiplier));
+}

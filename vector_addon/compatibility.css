@@ -1,0 +1,116 @@
+@media only screen and (max-width: 1200px), (max-height: 550px) {
+    :root {
+        --font_size_multiplier: 0.75;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    :root {
+        --font_size_multiplier: 0.75;
+    }
+
+    #footer .text_paragraph {
+        width: 60%;
+    }
+
+    .title_left_container {
+        height: 30px;
+    }
+
+    .text_section {
+        padding: 30px 100px;
+
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .text_paragraph {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .features {
+        text-align: center;
+    }
+
+    .features div span:last-child { /* the feature description */
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    #navigation {
+        display: none;
+    }
+
+    .text_section {
+        padding: 30px 50px;
+
+        flex-direction: column;
+        row-gap: 30px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .text_section img {
+        display: none;
+    }
+
+    #footer {
+        min-height: 600px;
+    }
+
+    #disclaimer {
+        left: 0;
+        text-align: center;
+    }
+
+    #large_button_container {
+        display: none;
+    }
+
+    #small_button_container {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 415px) {
+    #title_text {
+        font-size: calc(100px * var(--font_size_multiplier));
+    }
+}
+
+@media only screen and (max-width: 333px) {
+    #title_text {
+        font-size: calc(80px * var(--font_size_multiplier));
+    }
+
+    .text_section {
+        display: none;
+    }
+
+    #footer {
+        min-height: 725px;
+    }
+}
+
+@media only screen and (max-width: 275px) {
+    #title_text {
+        font-size: calc(60px * var(--font_size_multiplier));
+    }
+
+    #footer {
+        min-height: 850px;
+    }
+}
+
+@media only screen and (max-width: 200px), (max-height: 333px) {
+    #error {
+        display: flex;
+    }
+
+    #error::after {
+        content: "screen is too small";
+    }
+}

@@ -1,0 +1,97 @@
+@media only screen and (min-aspect-ratio: 7/4) {
+    #disclaimer {
+        top: 15px;
+        bottom: unset;
+        left: unset;
+        right: 20px;
+    }
+}
+
+@media only screen and (min-height: 750px) {
+    #disclaimer {
+        top: unset;
+        bottom: 25px;
+        left: 30px;
+        right: unset;
+    }
+}
+
+@media only screen and (max-width: 1130px), (max-height: 550px) {
+    :root {
+        --font_size_multiplier: 0.9;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.9;
+        --keyboard_size_multiplier: 0.9;
+    }
+}
+
+@media only screen and (max-width: 975px), (max-height: 450px) {
+    :root {
+        --font_size_multiplier: 0.8;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.8;
+        --keyboard_size_multiplier: 0.8;
+    }
+}
+
+@media only screen and (max-width: 785px), (max-height: 400px) {
+    :root {
+        --font_size_multiplier: 0.7;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.7;
+        --keyboard_size_multiplier: 0.7;
+    }
+
+    #disclaimer {
+        position: static;
+    }
+}
+
+@media only screen and (max-width: 750px), (max-height: 375px) {
+    :root {
+        --font_size_multiplier: 0.5;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.5;
+        --keyboard_size_multiplier: 0.5;
+    }
+}
+
+@media only screen and (max-width: 500px), (max-height: 275px) {
+    :root {
+        --font_size_multiplier: 0.35;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.35;
+        --keyboard_size_multiplier: 0.35;
+    }
+}
+
+@media only screen and (max-width: 375px), (max-height: 215px) {
+    :root {
+        --font_size_multiplier: 0.25;
+    }
+
+    #keyboard {
+        --keyboard_font_size_multiplier: 0.25;
+        --keyboard_size_multiplier: 0.25;
+    }
+}
+
+@media only screen and (max-width: 300px), (max-height: 175px) {
+    #error {
+        display: flex;
+    }
+
+    #error::after {
+        content: "screen is too small";
+    }
+}

@@ -164,6 +164,7 @@
 
     --light_mode_color_background: #CCC6C0;
     --light_mode_color_background_secondary: #D5D1CC;
+    --light_mode_color_background_tertiary: #857F7B;
     --light_mode_color_background_inverted: #0A0A0A;
 
     --light_mode_color_primary: #808080;
@@ -189,6 +190,7 @@
 
     --dark_mode_color_background: #43444B;
     --dark_mode_color_background_secondary: #354045;
+    --dark_mode_color_background_tertiary: #252D31;
     --dark_mode_color_background_inverted: #C8C8C8;
 
     --dark_mode_color_primary: #3C3C3C;
@@ -212,6 +214,7 @@
 
     --theme_color_background: var(--light_mode_color_background);
     --theme_color_background_secondary: var(--light_mode_color_background_secondary);
+    --theme_color_background_tertiary: var(--light_mode_color_background_tertiary);
     --theme_color_background_inverted: var(--light_mode_color_background_inverted);
 
     --theme_color_primary: var(--light_mode_color_primary);
@@ -246,6 +249,7 @@
 
     --theme_color_background: var(--dark_mode_color_background);
     --theme_color_background_secondary: var(--dark_mode_color_background_secondary);
+    --theme_color_background_tertiary: var(--dark_mode_color_background_tertiary);
     --theme_color_background_inverted: var(--dark_mode_color_background_inverted);
 
     --theme_color_primary: var(--dark_mode_color_primary);
@@ -269,6 +273,10 @@
 
 *:focus-visible {
     outline: var(--theme_color_accent) solid 2px;
+}
+
+img {
+    user-select: none;
 }
 
 body {
@@ -456,6 +464,22 @@ svg {
     font-family: var(--font_family_text_paragraph);
     font-weight: 300;
     font-size: calc(28px * var(--font_size_multiplier));
+}
+
+.text_small {
+    appearance: none;
+    outline: none;
+
+    color: var(--theme_color_text);
+
+    font-family: var(--font_family_text_paragraph);
+    font-weight: 300;
+    font-size: calc(18px * var(--font_size_multiplier));
+
+    transition-property: color, background-color;
+    transition-delay: var(--theme_transition_delay);
+    transition-duration: var(--theme_transition_duration);
+    transition-timing-function: var(--theme_transition_timing_function);
 }
 
 .link {

@@ -1,0 +1,74 @@
+:root {
+    --light_mode_color_background: var(--color_off_white);
+    --dark_mode_color_background_secondary: #1D1E1E;
+}
+
+#main {
+    padding-top: 175px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#footer {
+    width: 100%;
+    margin-top: 6ch;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-end;
+}
+
+.waterfall_container {
+    --image_gap: 8px;
+
+    padding: 0;
+
+    column-count: 4;
+    gap: 0 var(--image_gap);
+}
+
+.waterfall_container > div {
+    aspect-ratio: 4/3; /* prevents ugly resizing and content shifts during page loads */
+    width: 100%;
+
+    padding: 0;
+    margin-bottom: var(--image_gap);
+
+    display: block;
+    box-sizing: border-box;
+    break-inside: avoid;
+
+    background-color: var(--theme_color_background_secondary);
+}
+
+.waterfall_container img {
+    width: 100%;
+}
+
+.waterfall_container .picture_text {
+    padding: 0.75ch 0.5em 0.7ch 0.75em;
+}
+
+.image_container {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+}
+
+.image_container img {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+
+    object-fit: cover;
+
+    color: transparent;
+    background-color: transparent;
+}
+
+.image_container img:not(:first-child) {
+    display: none;
+}

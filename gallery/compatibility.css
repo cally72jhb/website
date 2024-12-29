@@ -1,0 +1,105 @@
+@media only screen and (max-width: 1300px) {
+    #main {
+        padding-top: 100px;
+        padding-left: 90px;
+        padding-right: 90px;
+    }
+
+    .waterfall_container {
+        column-count: 3;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    :root {
+        --font_size_multiplier: 0.75;
+    }
+
+    #main {
+        padding-top: 80px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .waterfall_container {
+        column-count: 2;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    :root {
+        --font_size_multiplier: 0.6;
+    }
+
+    #main {
+        padding-top: 60px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    :root {
+        --font_size_multiplier: 0.5;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+    :root {
+        --font_size_multiplier: 0.375;
+    }
+
+    #main {
+        padding-top: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .waterfall_container {
+        column-count: 1;
+    }
+}
+
+@media only screen and (max-width: 125px) {
+    :root {
+        --font_size_multiplier: 0.3;
+    }
+
+    #main {
+        padding-top: 50px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+/* too small screen size */
+
+@media only screen and (max-width: 75px) {
+    #error {
+        display: flex;
+    }
+
+    #error::after {
+        content: "screen is too small";
+    }
+}
+
+/* image sizes */
+
+@media only screen and (min-width: 800px) {
+    .image_container img[data-size="8x"] { display: none;  }
+    .image_container img[data-size="4x"] { display: none;  }
+    .image_container img[data-size="1x"] { display: block; }
+}
+
+@media only screen and (max-width: 800px) {
+    .image_container img[data-size="8x"] { display: none;  }
+    .image_container img[data-size="4x"] { display: block; }
+    .image_container img[data-size="1x"] { display: none;  }
+}
+
+@media only screen and (max-width: 400px) {
+    .image_container img[data-size="8x"] { display: block; }
+    .image_container img[data-size="4x"] { display: none;  }
+    .image_container img[data-size="1x"] { display: none;  }
+}

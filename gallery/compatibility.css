@@ -28,7 +28,7 @@
 
 @media only screen and (max-width: 425px) {
     :root {
-        --font_size_multiplier: 0.6;
+        --font_size_multiplier: 0.75;
     }
 
     #main {
@@ -40,13 +40,25 @@
 
 @media only screen and (max-width: 300px) {
     :root {
-        --font_size_multiplier: 0.5;
+        --font_size_multiplier: 0.625;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    :root {
+        --font_size_multiplier: 0.55;
+    }
+
+    #main {
+        padding-top: 50px;
+        padding-left: 12px;
+        padding-right: 12px;
     }
 }
 
 @media only screen and (max-width: 200px) {
     :root {
-        --font_size_multiplier: 0.375;
+        --font_size_multiplier: 0.6;
     }
 
     #main {

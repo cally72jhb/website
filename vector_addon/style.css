@@ -107,8 +107,12 @@ body {
     background-color: #000000;
 }
 
-#footer .text_paragraph {
+#footer #footer_container {
     width: 45%;
+}
+
+#footer .text_paragraph {
+    width: 100%;
 }
 
 #footer .text_paragraph a, #footer .disclaimer a, #footer .title {

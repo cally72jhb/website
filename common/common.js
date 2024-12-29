@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     storage = new Storage();
 
     const element_dark_mode_button = document.getElementById("button_dark_mode");
-    if (element_dark_mode_button !== undefined && element_dark_mode_button !== null) {
+    if (element_dark_mode_button !== undefined && element_dark_mode_button !== null && !element_dark_mode_button.hasAttribute("checked")) {
         storage.register_bool("setting_dark_mode", element_dark_mode_button, "checkbox");
         element_add_event("click", element_dark_mode_button, function() { storage.update(); storage.store(); });
 
@@ -111,8 +111,6 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             storage.update();
             storage.store();
-
-            console.log("saved");
         }
     }
 

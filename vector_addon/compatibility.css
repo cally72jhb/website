@@ -15,7 +15,11 @@
         --font_size_multiplier: 0.75;
     }
 
-    #footer .text_paragraph {
+    .text_paragraph {
+        width: 100%;
+    }
+
+    #footer #footer_container {
         width: 60%;
     }
 
@@ -28,10 +32,6 @@
 
         flex-direction: column;
         row-gap: 30px;
-    }
-
-    .text_paragraph {
-        width: 100%;
     }
 }
 

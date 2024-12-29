@@ -44,7 +44,7 @@
 
     overflow: hidden;
 
-    touch-action: pan-y pinch-zoom;
+    touch-action: manipulation;
 
     border-radius: calc(15px * var(--keyboard_size_multiplier));
 

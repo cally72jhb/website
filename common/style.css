@@ -285,7 +285,7 @@ body {
 
     overflow-x: hidden;
     scroll-behavior: smooth;
-    touch-action: pan-y pinch-zoom;
+    touch-action: manipulation;
 
     color: var(--theme_color_text);
     background-color: var(--theme_color_background);

@@ -22,7 +22,7 @@
 
     overflow: hidden;
 
-    touch-action: pan-y pinch-zoom;
+    touch-action: manipulation;
 
     border-radius: 25px;
 

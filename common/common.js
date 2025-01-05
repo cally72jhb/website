@@ -105,12 +105,16 @@ document.addEventListener("DOMContentLoaded", async function() {
         storage.register_bool("setting_dark_mode", element_dark_mode_button, "checkbox");
         element_add_event("click", element_dark_mode_button, function() { storage.update(); storage.store(); });
 
+        storage.load();
+
         if (!storage.has_saved_data) {
             element_dark_mode_button.checked = prefers_dark_mode;
             element_update(element_dark_mode_button);
 
             storage.update();
             storage.store();
+        } else {
+            element_dark_mode_button.checked = storage.get("setting_dark_mode");
         }
     }
 

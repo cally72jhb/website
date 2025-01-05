@@ -1,3 +1,82 @@
+/* big screen sizes */
+
+@media only screen and (min-width: 2500px) {
+    :root {
+        --font_size_multiplier: 1.3;
+    }
+
+    #main {
+        padding-top: 150px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+    .waterfall_container {
+        --image_gap: 10px;
+        --image_border_width: 6px;
+
+        column-count: 5;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 90px;
+    }
+}
+
+@media only screen and (min-width: 3500px) {
+    :root {
+        --font_size_multiplier: 1.6;
+    }
+
+    #main {
+        padding-top: 175px;
+        padding-left: 110px;
+        padding-right: 110px;
+    }
+
+    .waterfall_container {
+        --image_gap: 12px;
+        --image_border_width: 8px;
+
+        column-count: 6;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 95px;
+    }
+}
+
+@media only screen and (min-width: 4200px) {
+    :root {
+        --font_size_multiplier: 2.0;
+    }
+
+    #main {
+        padding-top: 200px;
+        padding-left: 115px;
+        padding-right: 115px;
+    }
+
+    .waterfall_container {
+        --image_gap: 13px;
+        --image_border_width: 10px;
+
+        column-count: 7;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 100px;
+    }
+}
+
+@media only screen and (min-width: 4600px) {
+    :root {
+        --font_size_multiplier: 2.2;
+    }
+}
+
+/* small screen sizes */
+
 @media only screen and (max-width: 1300px) {
     #main {
         padding-top: 100px;
@@ -7,6 +86,10 @@
 
     .waterfall_container {
         column-count: 3;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 50px;
     }
 }
 
@@ -24,6 +107,10 @@
     .waterfall_container {
         column-count: 2;
     }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 40px;
+    }
 }
 
 @media only screen and (max-width: 425px) {
@@ -36,11 +123,21 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 25px;
+    }
 }
 
 @media only screen and (max-width: 300px) {
     :root {
         --font_size_multiplier: 0.625;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        --image_border_width: 2px;
+
+        padding: 15px;
     }
 }
 
@@ -81,6 +178,10 @@
         padding-top: 50px;
         padding-left: 8px;
         padding-right: 8px;
+    }
+
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 10px;
     }
 }
 

@@ -1,0 +1,124 @@
+.waterfall_container > div > img:first-child {
+    display: none; /* hide the placeholder image */
+}
+
+.waterfall_container > div:has(input[type="checkbox"]:checked) {
+    & > img:first-child {
+        display: inline-block; /* displays the placeholder image to not mess with the waterfall layout */
+    }
+
+    & > .container_label { /* when the image was clicked make the label fullscreen and blur the background */
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 75px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        backdrop-filter: blur(15px) brightness(50%);
+    }
+
+    & > .container_label > span {
+        position: relative;
+
+        width: fit-content;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        box-shadow: var(--theme_color_solid_shadow) 0 0 75px;
+        background-color: var(--theme_color_background_secondary);
+
+        border-style: solid;
+        border-width: var(--image_border_width);
+        border-color: var(--theme_color_background_secondary);
+    }
+
+    & > .container_label .text_small {
+        display: none;
+    }
+
+    & > .container_label .image_container img {
+        width: unset;
+        height: 100%;
+        max-height: 100%;
+
+        grid-column: auto;
+        grid-row: auto;
+
+        object-fit: cover;
+    }
+
+    & > .container_label .image_container img:not(:first-child) {
+        position: absolute;
+    }
+
+    & > .container_label .image_container img[data-size="8x"] { display: none;  }
+    & > .container_label .image_container img[data-size="4x"] { display: none;  }
+    & > .container_label .image_container img[data-size="1x"] { display: block; }
+}
+
+/* scale images based on aspect ratio */
+
+@media only screen and (max-aspect-ratio: 1/1) {
+    .waterfall_container > div:is(.aspect_1_1):has(input[type="checkbox"]:checked) > .container_label > span {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .waterfall_container > div:is(.aspect_1_1):has(input[type="checkbox"]:checked) > .container_label .image_container img {
+        width: 100%;
+        min-width: 100%;
+        height: unset;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 1/2) {
+    .waterfall_container > div:is(.aspect_1_2):has(input[type="checkbox"]:checked) > .container_label > span {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .waterfall_container > div:is(.aspect_1_2):has(input[type="checkbox"]:checked) > .container_label .image_container img {
+        width: 100%;
+        min-width: 100%;
+        height: unset;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 3/4) {
+    .waterfall_container > div:is(.aspect_3_4):has(input[type="checkbox"]:checked) > .container_label > span {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .waterfall_container > div:is(.aspect_3_4):has(input[type="checkbox"]:checked) > .container_label .image_container img {
+        width: 100%;
+        min-width: 100%;
+        height: unset;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 4/3) {
+    .waterfall_container > div:is(.aspect_4_3):has(input[type="checkbox"]:checked) > .container_label > span {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .waterfall_container > div:is(.aspect_4_3):has(input[type="checkbox"]:checked) > .container_label .image_container img {
+        width: 100%;
+        min-width: 100%;
+        height: unset;
+    }
+}

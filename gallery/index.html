@@ -24,8 +24,9 @@
     <link rel="stylesheet" href="../common/style.css"/>
 
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="waterfall_layout.css"/>
+    <link rel="stylesheet" href="overlay_card.css"/>
     <link rel="stylesheet" href="compatibility.css"/>
-
     <!-- Scripts -->
 
     <script type="module" src="../common/common.js"></script>
@@ -38,434 +39,729 @@
 
 <body translate="no">
 
-<!-- FAVICON & THEME BUTTON -->
+    <!-- FAVICON & THEME BUTTON -->
 
-<div id="favicon_data">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0L362.9 64.8C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
-</div>
-
-<input id="button_dark_mode" type="checkbox" hidden> <!-- only accessed through labels to prevent jump to content when interacting -->
-
-<!-- ERROR SECTION -->
-
-<div id="error">error:</div>
-
-<!-- PAGE START -->
-
-<div id="main" class="container_center_x container_padded">
-
-    <div class="text text_left" style="width: 100%; margin-bottom: 3ch;">
-        <div class="bold_heading">My Gallery</div>
+    <div id="favicon_data">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M149.1 64.8L138.7 96 64 96C28.7 96 0 124.7 0 160L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64l-74.7 0L362.9 64.8C356.4 45.2 338.1 32 317.4 32L194.6 32c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg>
     </div>
 
-    <div class="waterfall_container"> <!-- IMAGE WATERFALL LAYOUT -->
-        <div><div class="image_container">
-            <img src="assets/images_64x/tree_2.jpg" alt="tree" draggable="false">
-            <img src="assets/images_8x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
+    <input id="button_dark_mode" type="checkbox" hidden> <!-- only accessed through labels to prevent jump to content when interacting -->
 
-        <div class="text_small">
-            <div class="image_container">
+    <!-- ERROR SECTION -->
+
+    <div id="error">error:</div>
+
+    <!-- PAGE START -->
+
+    <div id="main" class="container_center_x container_padded">
+
+        <div class="text text_left" style="width: 100%; margin-bottom: 3ch;">
+            <div class="bold_heading">My Gallery</div>
+        </div>
+
+        <div class="waterfall_container" style="position: relative;"> <!-- IMAGE WATERFALL LAYOUT -->
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/tree_2.jpg" alt="tree" draggable="false">
+                <input id="input_1" type="checkbox" hidden>
+                <label for="input_1" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/tree_2.jpg" alt="tree" draggable="false">
+                        <img src="assets/images_8x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/tree_2.jpg"  alt="tree" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/allay_1.jpg" alt="allay" draggable="false">
-                <img src="assets/images_8x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_2" type="checkbox" hidden>
+                <label for="input_2" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/allay_1.jpg" alt="allay" draggable="false">
+                        <img src="assets/images_8x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/allay_1.jpg"  alt="allay" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Saint-Tropez, France</span>
+                </label>
             </div>
 
-            <div class="picture_text">Saint-Tropez, France</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/building.jpg" alt="building" draggable="false">
+                <input id="input_3" type="checkbox" hidden>
+                <label for="input_3" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/building.jpg" alt="building" draggable="false">
+                        <img src="assets/images_8x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/building.jpg" alt="building" draggable="false">
-            <img src="assets/images_8x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/building.jpg"  alt="building" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/car.jpg" alt="car" draggable="false">
+                <input id="input_4" type="checkbox" hidden>
+                <label for="input_4" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/car.jpg" alt="car" draggable="false">
+                        <img src="assets/images_8x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/clouds.jpg" alt="clouds" draggable="false">
+                <input id="input_5" type="checkbox" hidden>
+                <label for="input_5" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/clouds.jpg" alt="clouds" draggable="false">
+                        <img src="assets/images_8x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/car.jpg" alt="car" draggable="false">
-            <img src="assets/images_8x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/car.jpg"  alt="car" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/clouds.jpg" alt="clouds" draggable="false">
-            <img src="assets/images_8x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/clouds.jpg"  alt="clouds" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/sacre_coeur.jpg" alt="sacre cour" draggable="false">
-                <img src="assets/images_8x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_6" type="checkbox" hidden>
+                <label for="input_6" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/sacre_coeur.jpg" alt="sacre cour" draggable="false">
+                        <img src="assets/images_8x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/sacre_coeur.jpg"  alt="sacre cour" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Sacre Coeur, Paris, France</span>
+                </label>
             </div>
 
-            <div class="picture_text">Sacre Coeur, Paris, France</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/tree_5.jpg" alt="tree" draggable="false">
+                <input id="input_7" type="checkbox" hidden>
+                <label for="input_7" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/tree_5.jpg" alt="tree" draggable="false">
+                        <img src="assets/images_8x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/tree_5.jpg" alt="tree" draggable="false">
-            <img src="assets/images_8x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/tree_5.jpg"  alt="tree" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/arc_de_triomphe.jpg" alt="arc de triomphe" draggable="false">
-                <img src="assets/images_8x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="1x">
-            </div>
+                <input id="input_8" type="checkbox" hidden>
+                <label for="input_8" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/arc_de_triomphe.jpg" alt="arc de triomphe" draggable="false">
+                        <img src="assets/images_8x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/arc_de_triomphe.jpg"  alt="arc de triomphe" draggable="false" loading="lazy" data-size="1x">
+                    </span>
 
-            <div class="picture_text">Arc de Triomphe, Paris, France</div>
-        </div>
-        <div class="text_small">
-            <div class="image_container">
+                    <span class="text_small picture_text">Arc de Triomphe, Paris, France</span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/frankfurt_skyline_3.jpg" alt="frankfurt skyline" draggable="false">
-                <img src="assets/images_8x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_9" type="checkbox" hidden>
+                <label for="input_9" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/frankfurt_skyline_3.jpg" alt="frankfurt skyline" draggable="false">
+                        <img src="assets/images_8x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/frankfurt_skyline_3.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Frankfurt, Germany</span>
+                </label>
             </div>
 
-            <div class="picture_text">Frankfurt, Germany</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/garden.jpg" alt="garden" draggable="false">
+                <input id="input_10" type="checkbox" hidden>
+                <label for="input_10" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/garden.jpg" alt="garden" draggable="false">
+                        <img src="assets/images_8x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/night_sky_stars.jpg" alt="night sky stars" draggable="false">
+                <input id="input_11" type="checkbox" hidden>
+                <label for="input_11" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/night_sky_stars.jpg" alt="night sky stars" draggable="false">
+                        <img src="assets/images_8x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/garden.jpg" alt="garden" draggable="false">
-            <img src="assets/images_8x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/garden.jpg"  alt="garden" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/night_sky_stars.jpg" alt="night sky stars" draggable="false">
-            <img src="assets/images_8x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/night_sky_stars.jpg"  alt="night sky stars" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_4_3">
                 <img src="assets/images_64x/monaco_1.jpg" alt="monaco" draggable="false">
-                <img src="assets/images_8x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_12" type="checkbox" hidden>
+                <label for="input_12" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/monaco_1.jpg" alt="monaco" draggable="false">
+                        <img src="assets/images_8x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/monaco_1.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Monaco, Europe</span>
+                </label>
+            </div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/monaco_2.jpg" alt="monaco" draggable="false">
+                <input id="input_13" type="checkbox" hidden>
+                <label for="input_13" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/monaco_2.jpg" alt="monaco" draggable="false">
+                        <img src="assets/images_8x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
             </div>
 
-            <div class="picture_text">Monaco, Europe</div>
-        </div>
-
-        <div><div class="image_container">
-            <img src="assets/images_64x/monaco_2.jpg" alt="monaco" draggable="false">
-            <img src="assets/images_8x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/monaco_2.jpg"  alt="monaco" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/eiffel_tower.jpg" alt="eiffel tower" draggable="false">
-                <img src="assets/images_8x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_14" type="checkbox" hidden>
+                <label for="input_14" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/eiffel_tower.jpg" alt="eiffel tower" draggable="false">
+                        <img src="assets/images_8x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/eiffel_tower.jpg"  alt="eiffel tower" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Eiffel Tower, Paris, France</span>
+                </label>
             </div>
 
-            <div class="picture_text">Eiffel Tower, Paris, France</div>
-        </div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/house_1.jpg" alt="house" draggable="false">
-            <img src="assets/images_8x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/house_1.jpg" alt="house" draggable="false">
+                <input id="input_15" type="checkbox" hidden>
+                <label for="input_15" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/house_1.jpg" alt="house" draggable="false">
+                        <img src="assets/images_8x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/house_1.jpg"  alt="house" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/paris_1.jpg" alt="paris" draggable="false">
-                <img src="assets/images_8x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_16" type="checkbox" hidden>
+                <label for="input_16" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/paris_1.jpg" alt="paris" draggable="false">
+                        <img src="assets/images_8x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/paris_1.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Eiffel Tower, Paris, France - view from the second floor</span>
+                </label>
             </div>
 
-            <div class="picture_text">Eiffel Tower, Paris, France - view from the second floor</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/frankfurt_skyline_4.jpg" alt="frankfurt skyline" draggable="false">
+                <input id="input_17" type="checkbox" hidden>
+                <label for="input_17" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/frankfurt_skyline_4.jpg" alt="frankfurt skyline" draggable="false">
+                        <img src="assets/images_8x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/frankfurt_skyline_4.jpg" alt="frankfurt skyline" draggable="false">
-            <img src="assets/images_8x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/frankfurt_skyline_4.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/frankfurt_skyline_5.jpg" alt="frankfurt skyline" draggable="false">
-                <img src="assets/images_8x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_18" type="checkbox" hidden>
+                <label for="input_18" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/frankfurt_skyline_5.jpg" alt="frankfurt skyline" draggable="false">
+                        <img src="assets/images_8x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/frankfurt_skyline_5.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Frankfurt, Germany</span>
+                </label>
             </div>
 
-            <div class="picture_text">Frankfurt, Germany</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/paris_3.jpg" alt="paris" draggable="false">
+                <input id="input_19" type="checkbox" hidden>
+                <label for="input_19" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/paris_3.jpg" alt="paris" draggable="false">
+                        <img src="assets/images_8x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/landscape_3.jpg" alt="landscape" draggable="false">
+                <input id="input_20" type="checkbox" hidden>
+                <label for="input_20" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/landscape_3.jpg" alt="landscape" draggable="false">
+                        <img src="assets/images_8x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/allay_2.jpg" alt="allay" draggable="false">
+                <input id="input_21" type="checkbox" hidden>
+                <label for="input_21" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/allay_2.jpg" alt="allay" draggable="false">
+                        <img src="assets/images_8x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/checker_pattern_floor.jpg" alt="checker pattern floor" draggable="false">
+                <input id="input_22" type="checkbox" hidden>
+                <label for="input_22" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/checker_pattern_floor.jpg" alt="checker pattern floor" draggable="false">
+                        <img src="assets/images_8x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/paris_4.jpg" alt="paris" draggable="false">
+                <input id="input_23" type="checkbox" hidden>
+                <label for="input_23" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/paris_4.jpg" alt="paris" draggable="false">
+                        <img src="assets/images_8x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/frankfurt_skyline_1.jpg" alt="frankfurt skyline" draggable="false">
+                <input id="input_24" type="checkbox" hidden>
+                <label for="input_24" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/frankfurt_skyline_1.jpg" alt="frankfurt skyline" draggable="false">
+                        <img src="assets/images_8x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/frankfurt_skyline_2.jpg" alt="frankfurt skyline" draggable="false">
+                <input id="input_25" type="checkbox" hidden>
+                <label for="input_25" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/frankfurt_skyline_2.jpg" alt="frankfurt skyline" draggable="false">
+                        <img src="assets/images_8x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/greenery_1.jpg" alt="greenery" draggable="false">
+                <input id="input_26" type="checkbox" hidden>
+                <label for="input_26" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/greenery_1.jpg" alt="greenery" draggable="false">
+                        <img src="assets/images_8x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/greenery_2.jpg" alt="greenery" draggable="false">
+                <input id="input_27" type="checkbox" hidden>
+                <label for="input_27" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/greenery_2.jpg" alt="greenery" draggable="false">
+                        <img src="assets/images_8x/greenery_2.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/greenery_2.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/greenery_2.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/greenery_4.jpg" alt="greenery" draggable="false">
+                <input id="input_28" type="checkbox" hidden>
+                <label for="input_28" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/greenery_4.jpg" alt="greenery" draggable="false">
+                        <img src="assets/images_8x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/buildings_1.jpg" alt="buildings" draggable="false">
+                <input id="input_29" type="checkbox" hidden>
+                <label for="input_29" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/buildings_1.jpg" alt="buildings" draggable="false">
+                        <img src="assets/images_8x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/buildings_2.jpg" alt="buildings" draggable="false">
+                <input id="input_30" type="checkbox" hidden>
+                <label for="input_30" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/buildings_2.jpg" alt="buildings" draggable="false">
+                        <img src="assets/images_8x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/greenery_5.jpg" alt="greenery" draggable="false">
+                <input id="input_31" type="checkbox" hidden>
+                <label for="input_31" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/greenery_5.jpg" alt="greenery" draggable="false">
+                        <img src="assets/images_8x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/greenery_3.jpg" alt="greenery" draggable="false">
+                <input id="input_32" type="checkbox" hidden>
+                <label for="input_32" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/greenery_3.jpg" alt="greenery" draggable="false">
+                        <img src="assets/images_8x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_1_1">
+                <img src="assets/images_64x/snow.jpg" alt="snow" draggable="false">
+                <input id="input_33" type="checkbox" hidden>
+                <label for="input_33" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/snow.jpg" alt="snow" draggable="false">
+                        <img src="assets/images_8x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/pigeon.jpg" alt="pigeon" draggable="false">
+                <input id="input_34" type="checkbox" hidden>
+                <label for="input_34" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/pigeon.jpg" alt="pigeon" draggable="false">
+                        <img src="assets/images_8x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/house_2.jpg" alt="house" draggable="false">
+                <input id="input_35" type="checkbox" hidden>
+                <label for="input_35" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/house_2.jpg" alt="house" draggable="false">
+                        <img src="assets/images_8x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/lake.jpg" alt="lake" draggable="false">
+                <input id="input_36" type="checkbox" hidden>
+                <label for="input_36" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/lake.jpg" alt="lake" draggable="false">
+                        <img src="assets/images_8x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/paris_3.jpg" alt="paris" draggable="false">
-            <img src="assets/images_8x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/paris_3.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/landscape_3.jpg" alt="landscape" draggable="false">
-            <img src="assets/images_8x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/landscape_3.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/allay_2.jpg" alt="allay" draggable="false">
-            <img src="assets/images_8x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/allay_2.jpg"  alt="allay" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/checker_pattern_floor.jpg" alt="checker pattern floor" draggable="false">
-            <img src="assets/images_8x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/checker_pattern_floor.jpg"  alt="checker pattern floor" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/paris_4.jpg" alt="paris" draggable="false">
-            <img src="assets/images_8x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/paris_4.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/frankfurt_skyline_1.jpg" alt="frankfurt skyline" draggable="false">
-            <img src="assets/images_8x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/frankfurt_skyline_1.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/frankfurt_skyline_2.jpg" alt="frankfurt skyline" draggable="false">
-            <img src="assets/images_8x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/frankfurt_skyline_2.jpg"  alt="frankfurt skyline" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/greenery_1.jpg" alt="greenery" draggable="false">
-            <img src="assets/images_8x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/greenery_1.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div><div class="image_container">
-            <img src="assets/images_64x/greenery_2.jpg" alt="greenery" draggable="false">
-            <img src="assets/images_8x/greenery_2.jpg" alt="greenery" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/greenery_2.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/greenery_2.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/greenery_4.jpg" alt="greenery" draggable="false">
-            <img src="assets/images_8x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/greenery_4.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div><div class="image_container">
-            <img src="assets/images_64x/buildings_1.jpg" alt="buildings" draggable="false">
-            <img src="assets/images_8x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/buildings_1.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/buildings_2.jpg" alt="buildings" draggable="false">
-            <img src="assets/images_8x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/buildings_2.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div><div class="image_container">
-            <img src="assets/images_64x/greenery_5.jpg" alt="greenery" draggable="false">
-            <img src="assets/images_8x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/greenery_5.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/greenery_3.jpg" alt="greenery" draggable="false">
-            <img src="assets/images_8x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/greenery_3.jpg"  alt="greenery" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div><div class="image_container">
-            <img src="assets/images_64x/snow.jpg" alt="snow" draggable="false">
-            <img src="assets/images_8x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/snow.jpg"  alt="snow" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/pigeon.jpg" alt="pigeon" draggable="false">
-            <img src="assets/images_8x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/pigeon.jpg"  alt="pigeon" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/house_2.jpg" alt="house" draggable="false">
-            <img src="assets/images_8x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/house_2.jpg"  alt="house" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/lake.jpg" alt="lake" draggable="false">
-            <img src="assets/images_8x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/lake.jpg" alt="lake" draggable="false">
-            <img src="assets/images_8x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/lake.jpg"  alt="lake" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/watch.jpg" alt="watch" draggable="false">
-                <img src="assets/images_8x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_37" type="checkbox" hidden>
+                <label for="input_37" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/watch.jpg" alt="watch" draggable="false">
+                        <img src="assets/images_8x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/watch.jpg"  alt="watch" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">Casio A163W</span>
+                </label>
             </div>
 
-            <div class="picture_text">Casio A163W</div>
-        </div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/landscape_1.jpg" alt="landscape" draggable="false">
+                <input id="input_38" type="checkbox" hidden>
+                <label for="input_38" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/landscape_1.jpg" alt="landscape" draggable="false">
+                        <img src="assets/images_8x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/landscape_1.jpg" alt="landscape" draggable="false">
-            <img src="assets/images_8x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/landscape_1.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-
-        <div class="text_small">
-            <div class="image_container">
+            <div class="aspect_3_4">
                 <img src="assets/images_64x/landscape_2.jpg" alt="landscape" draggable="false">
-                <img src="assets/images_8x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
-                <img src="assets/images_4x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
-                <img src="assets/images_1x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
+                <input id="input_39" type="checkbox" hidden>
+                <label for="input_39" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/landscape_2.jpg" alt="landscape" draggable="false">
+                        <img src="assets/images_8x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/landscape_2.jpg"  alt="landscape" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+
+                    <span class="text_small picture_text">South Tyrol, Austria - during hiking</span>
+                </label>
             </div>
 
-            <div class="picture_text">South Tyrol, Austria - during hiking</div>
-        </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/vines.jpg" alt="vines" draggable="false">
+                <input id="input_40" type="checkbox" hidden>
+                <label for="input_40" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/vines.jpg" alt="vines" draggable="false">
+                        <img src="assets/images_8x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_1_1">
+                <img src="assets/images_64x/lamp.jpg" alt="lamp" draggable="false">
+                <input id="input_41" type="checkbox" hidden>
+                <label for="input_41" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/lamp.jpg" alt="lamp" draggable="false">
+                        <img src="assets/images_8x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/bench.jpg" alt="bench" draggable="false">
+                <input id="input_42" type="checkbox" hidden>
+                <label for="input_42" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/bench.jpg" alt="bench" draggable="false">
+                        <img src="assets/images_8x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/forest.jpg" alt="forest" draggable="false">
+                <input id="input_43" type="checkbox" hidden>
+                <label for="input_43" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/forest.jpg" alt="forest" draggable="false">
+                        <img src="assets/images_8x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/ladder.jpg" alt="ladder" draggable="false">
+                <input id="input_44" type="checkbox" hidden>
+                <label for="input_44" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/ladder.jpg" alt="ladder" draggable="false">
+                        <img src="assets/images_8x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/bamboo.jpg" alt="bamboo" draggable="false">
+                <input id="input_45" type="checkbox" hidden>
+                <label for="input_45" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/bamboo.jpg" alt="bamboo" draggable="false">
+                        <img src="assets/images_8x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_4_3">
+                <img src="assets/images_64x/close_up.jpg" alt="close up view of a rock" draggable="false">
+                <input id="input_46" type="checkbox" hidden>
+                <label for="input_46" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/close_up.jpg" alt="close up view of a rock" draggable="false">
+                        <img src="assets/images_8x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_1_2">
+                <img src="assets/images_64x/cloud.jpg" alt="cloud" draggable="false">
+                <input id="input_47" type="checkbox" hidden>
+                <label for="input_47" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/cloud.jpg" alt="cloud" draggable="false">
+                        <img src="assets/images_8x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/paris_2.jpg" alt="paris" draggable="false">
+                <input id="input_48" type="checkbox" hidden>
+                <label for="input_48" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/paris_2.jpg" alt="paris" draggable="false">
+                        <img src="assets/images_8x/paris_2.jpg"  alt="paris" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/paris_2.jpg"  alt="paris" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/paris_2.jpg"  alt="paris" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/avenue.jpg" alt="avenue" draggable="false">
+                <input id="input_49" type="checkbox" hidden>
+                <label for="input_49" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/avenue.jpg" alt="avenue" draggable="false">
+                        <img src="assets/images_8x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/buildings_3.jpg" alt="buildings" draggable="false">
+                <input id="input_50" type="checkbox" hidden>
+                <label for="input_50" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/buildings_3.jpg" alt="buildings" draggable="false">
+                        <img src="assets/images_8x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/liminal_space_1.jpg" alt="liminal space" draggable="false">
+                <input id="input_51" type="checkbox" hidden>
+                <label for="input_51" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/liminal_space_1.jpg" alt="liminal space" draggable="false">
+                        <img src="assets/images_8x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/liminal_space_2.jpg" alt="liminal space" draggable="false">
+                <input id="input_52" type="checkbox" hidden>
+                <label for="input_52" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/liminal_space_2.jpg" alt="liminal space" draggable="false">
+                        <img src="assets/images_8x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+            <div class="aspect_3_4">
+                <img src="assets/images_64x/liminal_space_3.jpg" alt="liminal space" draggable="false">
+                <input id="input_53" type="checkbox" hidden>
+                <label for="input_53" class="container_label">
+                    <span class="image_container">
+                        <img src="assets/images_64x/liminal_space_3.jpg" alt="liminal space" draggable="false">
+                        <img src="assets/images_8x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
+                        <img src="assets/images_4x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
+                        <img src="assets/images_1x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
+                    </span>
+                </label>
+            </div>
+        </div> <!-- IMAGE WATERFALL LAYOUT -->
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/vines.jpg" alt="vines" draggable="false">
-            <img src="assets/images_8x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/vines.jpg"  alt="vines" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/lamp.jpg" alt="lamp" draggable="false">
-            <img src="assets/images_8x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/lamp.jpg"  alt="lamp" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/bench.jpg" alt="bench" draggable="false">
-            <img src="assets/images_8x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/bench.jpg"  alt="bench" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/forest.jpg" alt="forest" draggable="false">
-            <img src="assets/images_8x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/forest.jpg"  alt="forest" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/ladder.jpg" alt="ladder" draggable="false">
-            <img src="assets/images_8x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/ladder.jpg"  alt="ladder" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/bamboo.jpg" alt="bamboo" draggable="false">
-            <img src="assets/images_8x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/bamboo.jpg"  alt="bamboo" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/close_up.jpg" alt="close up view of a rock" draggable="false">
-            <img src="assets/images_8x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/close_up.jpg"  alt="close up view of a rock" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/cloud.jpg" alt="cloud" draggable="false">
-            <img src="assets/images_8x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/cloud.jpg"  alt="cloud" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/avenue.jpg" alt="avenue" draggable="false">
-            <img src="assets/images_8x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/avenue.jpg"  alt="avenue" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/buildings_3.jpg" alt="buildings" draggable="false">
-            <img src="assets/images_8x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/buildings_3.jpg"  alt="buildings" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
+        <div id="footer" class="text text_left">
+            <div id="disclaimer">
+                <div class="disclaimer text_left">
+                    Icons by
+                    <a class="link" href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">
+                        Font Awesome
+                    </a>
+                    <br/>
 
-        <div><div class="image_container">
-            <img src="assets/images_64x/liminal_space_1.jpg" alt="liminal space" draggable="false">
-            <img src="assets/images_8x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/liminal_space_1.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/liminal_space_2.jpg" alt="liminal space" draggable="false">
-            <img src="assets/images_8x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/liminal_space_2.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-        <div><div class="image_container">
-            <img src="assets/images_64x/liminal_space_3.jpg" alt="liminal space" draggable="false">
-            <img src="assets/images_8x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="8x">
-            <img src="assets/images_4x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="4x">
-            <img src="assets/images_1x/liminal_space_3.jpg"  alt="liminal space" draggable="false" loading="lazy" data-size="1x">
-        </div></div>
-    </div> <!-- IMAGE WATERFALL LAYOUT -->
-
-    <div id="footer" class="text text_left">
-        <div id="disclaimer">
-            <div class="disclaimer text_left">
-                Icons by
-                <a class="link" href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">
-                    Font Awesome
-                </a>
-                <br/>
-
-                Fonts by
-                <a class="link" href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">
-                    Google Fonts
-                </a>
-                <br/>
-                <br/>
-                all images on this page were taken by me (cally72jhb)
-                <br/>
-                for complete licensing information, please refer to the
-                <a class="link" href="https://raw.githubusercontent.com/cally72jhb/website/refs/heads/main/LICENSE" target="_blank" rel="noopener noreferrer">
-                    LICENSE
-                </a>
+                    Fonts by
+                    <a class="link" href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">
+                        Google Fonts
+                    </a>
+                    <br/>
+                    <br/>
+                    all images on this page were taken by me (cally72jhb)
+                    <br/>
+                    for complete licensing information, please refer to the
+                    <a class="link" href="https://raw.githubusercontent.com/cally72jhb/website/refs/heads/main/LICENSE" target="_blank" rel="noopener noreferrer">
+                        LICENSE
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
-
-</div>
 
 </body>
 

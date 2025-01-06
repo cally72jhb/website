@@ -12,7 +12,6 @@ body:has(.waterfall_container input[type="checkbox"]:checked) {
 
 img {
     background-color: transparent;
-    object-fit: contain;
 }
 
 #main {

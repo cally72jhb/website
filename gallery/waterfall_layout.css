@@ -21,12 +21,17 @@
     background-color: var(--theme_color_background_secondary);
 }
 
+.waterfall_container img {
+    object-fit: cover;
+}
+
 /* prevent ugly resizing and content shifts during page loading */
 
 .aspect_1_1 { aspect-ratio: 1/1; } .aspect_1_1 img { aspect-ratio: 1/1; }
-.aspect_1_2 { aspect-ratio: 1/2; } .aspect_1_2 img { aspect-ratio: 1/2; }
 .aspect_3_4 { aspect-ratio: 3/4; } .aspect_3_4 img { aspect-ratio: 3/4; }
 .aspect_4_3 { aspect-ratio: 4/3; } .aspect_4_3 img { aspect-ratio: 4/3; }
+
+.aspect_9_20 { aspect-ratio: 9/20; } .aspect_1_2 img { aspect-ratio: 9/20; }
 
 .waterfall_container img {
     width: 100%;

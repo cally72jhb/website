@@ -185,6 +185,32 @@
     }
 }
 
+/* landscape orientation */
+
+@media only screen and (max-height: 800px) {
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 30px;
+    }
+}
+
+@media only screen and (max-height: 425px) and (orientation: landscape) {
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-height: 250px) and (orientation: landscape) {
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-height: 150px) and (orientation: landscape) {
+    .waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+        padding: 5px;
+    }
+}
+
 /* too small screen size */
 
 @media only screen and (max-width: 75px) {

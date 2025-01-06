@@ -1,10 +1,18 @@
 :root {
     --light_mode_color_background: var(--color_off_white);
+    --light_mode_color_shadow: #000000FF;
+
     --dark_mode_color_background_secondary: #1D1E1E;
+    --dark_mode_color_shadow: #000000FF;
 }
 
 body:has(.waterfall_container input[type="checkbox"]:checked) {
     overflow: hidden; /* prevent scrolling while an image is opened */
+}
+
+img {
+    background-color: transparent;
+    object-fit: contain;
 }
 
 #main {

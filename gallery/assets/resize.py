@@ -14,14 +14,14 @@ def resize_images(input_folder_path, output_folder_path, resize_factor):
 
         if os.path.isfile(file_path) and filename.lower().endswith(("png", "jpg", "jpeg", "tiff", "bmp", "gif")):
             try:
-                with Image.open(file_path) as img:
-                    image_size = (int(img.width // resize_factor), int(img.height // resize_factor))
+                with Image.open(file_path) as image:
+                    image_size = (int(image.width // resize_factor), int(image.height // resize_factor))
 
-                    img = img.resize(image_size)
-                    img = ImageOps.exif_transpose(img)
+                    image = image.resize(image_size)
+                    image = ImageOps.exif_transpose(image)
 
                     output_file = os.path.join(output_folder_path, filename)
-                    img.save(output_file)
+                    image.save(output_file)
                     print(f"saved resized image (\"{file_path}\") to \"{output_file}\".")
             except Exception as error:
                 print(f"failed to process \"{filename}\": {error}")

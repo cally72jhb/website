@@ -2,9 +2,35 @@
     display: none; /* hide the placeholder image */
 }
 
+.waterfall_container > div:has(input[type="checkbox"]:checked) > .container_label {
+    opacity: 0.0;
+    transform: scale(1.0);
+
+    animation-name: animation_appear;
+    animation-delay: 0s;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animation_appear {
+    0% {
+        opacity: 0.0;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1.0;
+        transform: scale(1.0);
+    }
+}
+
 .waterfall_container > div:has(input[type="checkbox"]:checked) {
+    width: 100%;
+    height: fit-content;
+
     & > img:first-child {
-        display: inline-block; /* displays the placeholder image to not mess with the waterfall layout */
+        display: block; /* displays the placeholder image to not mess with the waterfall layout */
     }
 
     & > .container_label { /* when the image was clicked make the label fullscreen and blur the background */
@@ -25,7 +51,7 @@
         backdrop-filter: blur(15px) brightness(50%);
     }
 
-    & > .container_label > span {
+    & > .container_label > .image_container {
         position: relative;
 
         width: fit-content;
@@ -37,7 +63,7 @@
         align-items: center;
         overflow: hidden;
 
-        box-shadow: var(--theme_color_solid_shadow) 0 0 75px;
+        box-shadow: var(--theme_color_shadow) 0 0 75px;
         background-color: var(--theme_color_background_secondary);
 
         border-style: solid;
@@ -56,8 +82,6 @@
 
         grid-column: auto;
         grid-row: auto;
-
-        object-fit: cover;
     }
 
     & > .container_label .image_container img:not(:first-child) {
